@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B32DB19A-FA32-40FF-BE86-6F5156EC3C74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NETPack.Core</RootNamespace>
+    <AssemblyName>NETPack.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Engine\PackerContext.cs" />
+    <Compile Include="Engine\Packing\Analysis\CLRVersionAnalyzer.cs" />
+    <Compile Include="Engine\Packing\Analysis\AssemblyReferenceAnalyzer.cs" />
+    <Compile Include="Engine\Packing\Analysis\ArchitectureAnalyzer.cs" />
+    <Compile Include="Engine\Packing\Analysis\EntrypointAnalyzer.cs" />
+    <Compile Include="Engine\Packing\Analysis\ReflectionAnalyzer.cs" />
+    <Compile Include="Engine\Packing\Analysis\SubsystemAnalyzer.cs" />
+    <Compile Include="Engine\Packing\Steps\AnalysisStep.cs" />
+    <Compile Include="Engine\Packing\Steps\CompressingStep.cs" />
+    <Compile Include="Engine\Packing\Steps\LinkerStep.cs" />
+    <Compile Include="Engine\Packing\Steps\InitializerStep.cs" />
+    <Compile Include="Engine\Packing\Steps\FinalizerStep.cs" />
+    <Compile Include="Engine\QuickLZ.cs" />
+    <Compile Include="Engine\Structs, Enums &amp; Interfaces\AnalysisEntry.cs" />
+    <Compile Include="Engine\Structs, Enums &amp; Interfaces\Analyzer.cs" />
+    <Compile Include="Engine\Structs, Enums &amp; Interfaces\IAnalyzer.cs" />
+    <Compile Include="Engine\Structs, Enums &amp; Interfaces\IPackingStep.cs" />
+    <Compile Include="Engine\Structs, Enums &amp; Interfaces\LogLevel.cs" />
+    <Compile Include="Engine\Structs, Enums &amp; Interfaces\PackingStep.cs" />
+    <Compile Include="Engine\Utils\CecilHelper.cs" />
+    <Compile Include="Engine\Utils\Extensions\AssemblyDefinition.cs" />
+    <Compile Include="Engine\Utils\Extensions\Dictionary.cs" />
+    <Compile Include="Engine\Utils\Extensions\Int32.cs" />
+    <Compile Include="Engine\Utils\Extensions\ModuleDefinition.cs" />
+    <Compile Include="Engine\Utils\Extensions\String.cs" />
+    <Compile Include="Engine\Utils\Logger.cs" />
+    <Compile Include="Engine\Utils\StubWorker.cs" />
+    <Compile Include="Injections\Decompressor.cs" />
+    <Compile Include="Injections\Loader.cs" />
+    <Compile Include="Injections\Resolver.cs" />
+    <Compile Include="Packer.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\BaseStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\BlacklistStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\CleanStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\IStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\LoadI18nAssemblies.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\LoadReferencesStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\MarkStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\OutputStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\RegenerateGuidStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\ResolveFromAssemblyStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\ResolveFromXApiStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\ResolveFromXmlStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\ResolveStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\SweepStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker.Steps\TypeMapStep.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\Annotations.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\AssemblyAction.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\AssemblyResolver.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\Driver.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\I18nAssemblies.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\IXApiVisitor.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\LinkContext.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\MethodAction.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\Pipeline.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\TypePreserve.cs" />
+    <Compile Include="Mono libs\Linker\Mono.Linker\XApiReader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Desktop\jbevain-cecil-aea2ceb\Mono.Cecil.csproj">
+      <Project>{D68133BD-1E63-496E-9EDE-4FBDBF77B486}</Project>
+      <Name>Mono.Cecil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

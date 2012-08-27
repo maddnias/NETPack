@@ -1,0 +1,10 @@
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\bin\Debug\NETPack.Console.exe.config
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\bin\Debug\NETPack.Console.exe
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\bin\Debug\NETPack.Console.pdb
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\bin\Debug\NETPack.Core.dll
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\bin\Debug\Mono.Cecil.dll
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\bin\Debug\NETPack.Core.pdb
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\bin\Debug\Mono.Cecil.pdb
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\obj\x86\Debug\NETPack.Console.csprojResolveAssemblyReference.cache
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\obj\x86\Debug\NETPack.Console.exe
+C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\obj\x86\Debug\NETPack.Console.pdb

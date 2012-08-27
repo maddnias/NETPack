@@ -1,0 +1,66 @@
+﻿<RecentFiles>
+  <RecentFiles>
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:LogLevel.cs" caret="271" fromTop="12" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/f:PackerContext.cs" caret="0" fromTop="0" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:CecilHelper.cs" caret="216" fromTop="10" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:Logger.cs" caret="820" fromTop="19" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:MarkStep.cs" caret="2940" fromTop="0" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:ModuleDefinition.cs" caret="24670" fromTop="19" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="241" fromTop="11" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:AnalysisStep.cs" caret="989" fromTop="24" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Loader.cs" caret="829" fromTop="23" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Decompressor.cs" caret="0" fromTop="0" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:IPackingStep.cs" caret="0" fromTop="0" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:IAnalyzer.cs" caret="0" fromTop="0" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/f:QuickLZ.cs" caret="0" fromTop="0" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:OutputStep.cs" caret="1832" fromTop="20" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:LinkerStep.cs" caret="1086" fromTop="18" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="5169" fromTop="15" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker/f:AssemblyResolver.cs" caret="1905" fromTop="31" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:FinalizerStep.cs" caret="400" fromTop="15" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:Int32.cs" caret="237" fromTop="9" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:CLRVersionAnalyzer.cs" caret="823" fromTop="30" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:PackingStep.cs" caret="470" fromTop="18" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:CompressingStep.cs" caret="1321" fromTop="16" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="2189" fromTop="26" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:InitializerStep.cs" caret="0" fromTop="0" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:EntrypointAnalyzer.cs" caret="1011" fromTop="26" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:ReflectionAnalyzer.cs" caret="1436" fromTop="35" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:SubsystemAnalyzer.cs" caret="694" fromTop="24" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:ArchitectureAnalyzer.cs" caret="846" fromTop="30" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:AssemblyReferenceAnalyzer.cs" caret="886" fromTop="27" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="4246" fromTop="48" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:MarkStep.cs" caret="24044" fromTop="19" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker/f:AssemblyResolver.cs" caret="2196" fromTop="20" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="2192" fromTop="11" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="6165" fromTop="13" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="6748" fromTop="41" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="1760" fromTop="0" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="2657" fromTop="35" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="2406" fromTop="24" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="2192" fromTop="17" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="10341" fromTop="41" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="5785" fromTop="0" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="4993" fromTop="11" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="4617" fromTop="11" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="4428" fromTop="6" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:OutputStep.cs" caret="2406" fromTop="14" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:OutputStep.cs" caret="1549" fromTop="3" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:OutputStep.cs" caret="2640" fromTop="37" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:OutputStep.cs" caret="3718" fromTop="32" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:OutputStep.cs" caret="2197" fromTop="21" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:LinkerStep.cs" caret="1283" fromTop="20" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:LinkerStep.cs" caret="1283" fromTop="17" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:OutputStep.cs" caret="1986" fromTop="25" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:CompressingStep.cs" caret="1721" fromTop="20" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:LinkerStep.cs" caret="918" fromTop="12" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="2699" fromTop="38" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:EntrypointAnalyzer.cs" caret="1032" fromTop="14" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="1948" fromTop="28" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="2179" fromTop="26" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:CompressingStep.cs" caret="1503" fromTop="21" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:SubsystemAnalyzer.cs" caret="694" fromTop="24" />
+  </RecentEdits>
+</RecentFiles>
