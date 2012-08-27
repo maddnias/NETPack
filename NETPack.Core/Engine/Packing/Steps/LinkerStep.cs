@@ -36,7 +36,6 @@ namespace NETPack.Core.Engine.Packing.Steps
 
         public override void ProcessStep()
         {
-            return;
             var pipeLine = GetStandardPipeline();
             var ctx = new LinkContext(pipeLine)
                           {

@@ -174,7 +174,7 @@ ________________________________________________________________";
 
             Console.WriteLine(
                 "An exception has been thrown which was not handled!\n\nMessage:\n{0}\n\nA text file containing the error information" +
-                " has been generated in NETDeob's directory, please send the information to netdeob@gmail.com",
+                " has been generated in NETPack's directory, please send the information to ubbelolhfb@gmail.com",
                 error.Message);
             Console.ReadLine();
         }
