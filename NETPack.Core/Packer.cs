@@ -57,7 +57,7 @@ ________________________________________________________________";
             PackerContext.LogWriter = new StreamWriter(Path.Combine(PackerContext.LocalPath, "log.txt"));
             PackerContext.TargetAssembly = AssemblyDefinition.ReadAssembly(PackerContext.InPath);
 
-          //  AppDomain.CurrentDomain.UnhandledException += GlobalExcHandler;
+            AppDomain.CurrentDomain.UnhandledException += GlobalExcHandler;
         }
 
         public void PackFile()

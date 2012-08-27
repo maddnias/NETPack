@@ -1,17 +1,17 @@
 Error message:
-	Object reference not set to an instance of an object.
+	Illegal characters in path.
 
 Target site:
-	Void StripCoreDependency(Mono.Cecil.AssemblyDefinition ByRef, Mono.Cecil.TypeDefinition, Mono.Cecil.TypeDefinition)
+	Void CheckInvalidPathChars(System.String, Boolean)
 
 Inner Exception:
 	
 
 Stack trace:
 
-   at NETPack.Core.Engine.Utils.StubWorker.StripCoreDependency(AssemblyDefinition& stub, TypeDefinition decompressor, TypeDefinition resolver) in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Engine\Utils\StubWorker.cs:line 93
-   at NETPack.Core.Engine.Packing.Steps.CompressingStep.ProcessStep() in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Engine\Packing\Steps\CompressingStep.cs:line 43
-   at NETPack.Core.Packer.InternalPack() in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Packer.cs:line 115
+   at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.Combine(String path1, String path2)
+   at NETPack.Core.Packer.InternalUnpack() in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Packer.cs:line 83
    at NETPack.Core.Packer.PackFile() in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Packer.cs:line 66
    at NETPack.Console.Program.Main(String[] args) in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Console\Program.cs:line 13
    at System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)
