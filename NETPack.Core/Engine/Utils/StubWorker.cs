@@ -89,12 +89,17 @@ namespace NETPack.Core.Engine.Utils
 
             targetInstr.Operand = decompressor.Methods.First(x => x.Name == "D");
 
-            // Update in resolver
-            targetInstr =
-                resolver.Methods[1].Body.Instructions.First(
-                    x => x.OpCode.OperandType == OperandType.InlineMethod && x.Operand.ToString().Contains("Decompressor::D"));
+            if (resolver != null)
+            {
+                // Update in resolver
+                targetInstr =
+                    resolver.Methods[1].Body.Instructions.First(
+                        x =>
+                        x.OpCode.OperandType == OperandType.InlineMethod &&
+                        x.Operand.ToString().Contains("Decompressor::D"));
 
-            targetInstr.Operand = decompressor.Methods.First(x => x.Name == "D");
+                targetInstr.Operand = decompressor.Methods.First(x => x.Name == "D");
+            }
 
             stub.MainModule.AssemblyReferences.Remove(
                 stub.MainModule.AssemblyReferences.First(x => x.Name == "NETPack.Core"));

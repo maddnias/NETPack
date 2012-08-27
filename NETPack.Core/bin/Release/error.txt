@@ -9,11 +9,11 @@ Inner Exception:
 
 Stack trace:
 
-   at NETPack.Core.Engine.Utils.StubWorker.StripCoreDependency(AssemblyDefinition& stub, TypeDefinition decompressor, TypeDefinition resolver) in C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\Engine\Utils\StubWorker.cs:line 93
-   at NETPack.Core.Engine.Packing.Steps.CompressingStep.ProcessStep() in C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\Engine\Packing\Steps\CompressingStep.cs:line 43
-   at NETPack.Core.Packer.InternalPack() in C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\Packer.cs:line 114
-   at NETPack.Core.Packer.PackFile() in C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\Packer.cs:line 63
-   at NETPack.Console.Program.Main(String[] args) in C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Console\Program.cs:line 13
+   at NETPack.Core.Engine.Utils.StubWorker.StripCoreDependency(AssemblyDefinition& stub, TypeDefinition decompressor, TypeDefinition resolver) in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Engine\Utils\StubWorker.cs:line 93
+   at NETPack.Core.Engine.Packing.Steps.CompressingStep.ProcessStep() in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Engine\Packing\Steps\CompressingStep.cs:line 43
+   at NETPack.Core.Packer.InternalPack() in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Packer.cs:line 115
+   at NETPack.Core.Packer.PackFile() in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\Packer.cs:line 66
+   at NETPack.Console.Program.Main(String[] args) in C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Console\Program.cs:line 13
    at System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)
    at System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
    at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
