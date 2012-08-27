@@ -2,7 +2,6 @@
   <RecentFiles>
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:LogLevel.cs" caret="271" fromTop="12" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/f:PackerContext.cs" caret="0" fromTop="0" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:CecilHelper.cs" caret="216" fromTop="10" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:Logger.cs" caret="820" fromTop="19" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:MarkStep.cs" caret="2940" fromTop="0" />
     <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:ModuleDefinition.cs" caret="24670" fromTop="19" />
@@ -30,6 +29,7 @@
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:ArchitectureAnalyzer.cs" caret="846" fromTop="30" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:AssemblyReferenceAnalyzer.cs" caret="886" fromTop="27" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="4246" fromTop="48" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:CecilHelper.cs" caret="82" fromTop="3" />
   </RecentFiles>
   <RecentEdits>
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:MarkStep.cs" caret="24044" fromTop="19" />
