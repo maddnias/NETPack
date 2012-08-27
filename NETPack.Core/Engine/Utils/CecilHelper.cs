@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Credits: yck1509 / Confuser
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
