@@ -4,6 +4,6 @@
     <StartArguments>"C:\Users\Mattias\Documents\Visual Studio 2010\Projects\ConsoleApplication1\ConsoleApplication1\bin\Release\a\c.exe"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <StartArguments>"C:\Users\Mattias\Documents\Visual Studio 2010\Projects\Bejeweled Bot\bin\Debug\NETPack_Output\c.exe"</StartArguments>
+    <StartArguments>"C:\Users\Mattias\Documents\Visual Studio 2010\Projects\ConsoleApplication1\ConsoleApplication1\bin\Release\c.exe"</StartArguments>
   </PropertyGroup>
 </Project>
