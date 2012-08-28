@@ -50,7 +50,7 @@ namespace NETPack.Core.Engine.Packing.Steps
                 _stubAssembly.MainModule.Resources.Add(new EmbeddedResource("X", ManifestResourceAttributes.Public,
                                                                             tmpBuff));
 
-                Logger.VLog(string.Format("[Pack(Ref)] -> Packed assembly: {0}", PackerContext.TargetAssembly.Name.Name));
+                Logger.VLog(string.Format("[Pack(Main)] -> Packed assembly: {0}", PackerContext.TargetAssembly.Name.Name));
             }
         }
 

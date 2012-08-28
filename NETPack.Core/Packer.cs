@@ -8,6 +8,7 @@ using Mono.Cecil;
 using NETPack.Core.Engine;
 using NETPack.Core.Engine.Packing.Steps;
 using NETPack.Core.Engine.Structs__Enums___Interfaces;
+using NETPack.Core.Engine.Structs__Enums___Interfaces.Bugster;
 using NETPack.Core.Engine.Utils;
 using NETPack.Core.Engine.Utils.Extensions;
 
@@ -57,7 +58,19 @@ ________________________________________________________________";
             PackerContext.LogWriter = new StreamWriter(Path.Combine(PackerContext.LocalPath, "log.txt"));
             PackerContext.TargetAssembly = AssemblyDefinition.ReadAssembly(PackerContext.InPath);
 
-            AppDomain.CurrentDomain.UnhandledException += GlobalExcHandler;
+            var bugster = new BugReporter("5351ddb5009c5b025fd1a89409b3f262", new NETPackExceptionFormatter());
+
+            AppDomain.CurrentDomain.UnhandledException += bugster.UnhandledExceptionHandler;
+            bugster.ReportCompleted += (o, e) =>
+                                           {
+                                               if (e.WasSuccesful)
+                                               {
+                                                   Console.WriteLine(
+                                                       "An unhandled exception have occured and caused NETPack to terminate!\n\nAn automatic report have been sent to the author.");
+                                               }
+                                               else
+                                                   Console.WriteLine("Contact author!");
+                                           };
         }
 
         public void PackFile()

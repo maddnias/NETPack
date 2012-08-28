@@ -15,6 +15,7 @@ namespace NETPack.Core.Engine
             return !@LogLevel.HasFlag(LogLevel.Subtle) || !@LogLevel.HasFlag(LogLevel.Verbose);
         }
 
+        public static List<string> MarkedAssemblies = new List<string>();
         public static AssemblyDefinition TargetAssembly;
         public static LogLevel @LogLevel;
         public static Dictionary<string, AnalysisEntry> AnalysisDatabase = new Dictionary<string, AnalysisEntry>();

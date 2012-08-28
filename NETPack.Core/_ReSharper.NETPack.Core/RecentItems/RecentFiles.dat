@@ -28,11 +28,10 @@
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:SubsystemAnalyzer.cs" caret="694" fromTop="24" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:ArchitectureAnalyzer.cs" caret="846" fromTop="30" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:AssemblyReferenceAnalyzer.cs" caret="886" fromTop="27" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="4246" fromTop="48" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:CecilHelper.cs" caret="82" fromTop="3" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2289" fromTop="11" />
   </RecentFiles>
   <RecentEdits>
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:MarkStep.cs" caret="24044" fromTop="19" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker/f:AssemblyResolver.cs" caret="2196" fromTop="20" />
     <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="2192" fromTop="11" />
     <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:BaseAssemblyResolver.cs" caret="6165" fromTop="13" />
@@ -62,5 +61,6 @@
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="2179" fromTop="26" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:CompressingStep.cs" caret="1503" fromTop="21" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:SubsystemAnalyzer.cs" caret="694" fromTop="24" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2971" fromTop="23" />
   </RecentEdits>
 </RecentFiles>

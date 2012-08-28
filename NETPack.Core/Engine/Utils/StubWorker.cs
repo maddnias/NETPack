@@ -47,9 +47,13 @@ namespace NETPack.Core.Engine.Utils
 
             foreach (var @ref in PackerContext.AnalysisDatabase["AsmRef"].Values)
             {
-                var fixedPath = Path.Combine(Path.GetDirectoryName(PackerContext.InPath), @ref.Name + ".dll");
+                //var fixedPath = Path.Combine(Path.GetDirectoryName(PackerContext.InPath), @ref.Name + ".dll");
 
-                AssemblyDefinition asm = AssemblyDefinition.ReadAssembly(fixedPath);
+                //AssemblyDefinition asm = AssemblyDefinition.ReadAssembly(fixedPath);
+
+                string fixedPath;
+                var asm = (@ref as AssemblyNameReference).ResolveReference(out fixedPath);
+
                 var buff = File.ReadAllBytes(fixedPath);
                 stub.MainModule.Resources.Add(new EmbeddedResource(asm.Name.Name.MangleName(), ManifestResourceAttributes.Public, QuickLZ.compress(buff, 3)));
 

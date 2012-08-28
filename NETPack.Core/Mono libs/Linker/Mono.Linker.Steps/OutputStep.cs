@@ -60,7 +60,8 @@ namespace NETPack.Core.Linker.Mono.Linker.Steps {
 
 			switch (Annotations.GetAction (assembly)) {
 			case AssemblyAction.Link:
-                    PackerContext.TargetAssembly = assembly;
+                    if (assembly.FullName == PackerContext.TargetAssembly.FullName)
+                        PackerContext.TargetAssembly = assembly;
 				//assembly.Write (GetAssemblyFileName (assembly, directory), SaveSymbols (assembly));
 				break;
 			case AssemblyAction.Copy:
@@ -69,13 +70,16 @@ namespace NETPack.Core.Linker.Mono.Linker.Steps {
 				break;
 			case AssemblyAction.Delete:
 				CloseSymbols (assembly);
-				var target = GetAssemblyFileName (assembly, directory);
-				if (File.Exists (target)) {
-					File.Delete (target);
-					File.Delete (target + ".mdb");
-					File.Delete (GetConfigFile (target));
-				}
-				break;
+                
+                PackerContext.MarkedAssemblies.Add(assembly.FullName);
+			    var target = GetAssemblyFileName(assembly, directory);
+                if (File.Exists(target))
+                {
+                    File.Delete(target);
+                    File.Delete(target + ".mdb");
+                    File.Delete(GetConfigFile(target));
+                }
+			        break;
 			default:
 				CloseSymbols (assembly);
 				break;
