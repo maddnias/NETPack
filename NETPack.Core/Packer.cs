@@ -106,7 +106,7 @@ ________________________________________________________________";
         {
             var steps = new List<PackingStep>
                             {
-                                new LinkerStep(PackerContext.TargetAssembly),
+                                //new LinkerStep(PackerContext.TargetAssembly),
                                 new AnalysisStep(PackerContext.TargetAssembly),
                                 new InitializerStep(PackerContext.TargetAssembly),
                                 new CompressingStep(PackerContext.TargetAssembly),

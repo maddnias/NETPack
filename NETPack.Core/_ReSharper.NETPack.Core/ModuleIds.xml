@@ -2,5 +2,4 @@
   <Module PersistentId="B32DB19A-FA32-40FF-BE86-6F5156EC3C74" ModuleId="NETPack.Core" />
   <Module PersistentId="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5" ModuleId="NETPack.Console" />
   <Module PersistentId="D68133BD-1E63-496E-9EDE-4FBDBF77B486" ModuleId="Mono.Cecil" />
-  <Module PersistentId="FBC6DD59-D09D-499C-B03C-99C1C78FF2AC" ModuleId="Mono.Cecil.Rocks" />
 </Modules>

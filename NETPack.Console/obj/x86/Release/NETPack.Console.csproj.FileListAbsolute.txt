@@ -17,3 +17,9 @@ C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Console\obj\x86\Release\NETPac
 C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\bin\Release\NETPack.Console.exe
 C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\bin\Release\NETPack.Console.pdb
 C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Console\obj\x86\Release\NETPack.Console.csprojResolveAssemblyReference.cache
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\bin\Release\NETPack.Console.exe.config
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Console\obj\x86\Release\NETPack.Console.exe
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Console\obj\x86\Release\NETPack.Console.pdb
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\bin\Release\NETPack.Console.exe
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\bin\Release\NETPack.Console.pdb
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Console\obj\x86\Release\NETPack.Console.csprojResolveAssemblyReference.cache

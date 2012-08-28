@@ -12,3 +12,10 @@ C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\bin\Release\Mono.Cecil.pd
 C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\obj\Release\NETPack.Core.csprojResolveAssemblyReference.cache
 C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\obj\Release\NETPack.Core.dll
 C:\Users\Mattias\Documents\GitHub\NETPack\NETPack.Core\obj\Release\NETPack.Core.pdb
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\obj\Release\NETPack.Core.csprojResolveAssemblyReference.cache
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\obj\Release\NETPack.Core.dll
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\bin\Release\NETPack.Core.dll
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\bin\Release\NETPack.Core.pdb
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\bin\Release\Mono.Cecil.dll
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\bin\Release\Mono.Cecil.pdb
+C:\Users\Mattias\Documents\GitHub\temp\NETPack\NETPack.Core\obj\Release\NETPack.Core.pdb
