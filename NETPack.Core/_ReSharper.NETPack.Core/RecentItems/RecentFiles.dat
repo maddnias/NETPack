@@ -27,7 +27,7 @@
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:AssemblyReferenceAnalyzer.cs" caret="886" fromTop="27" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:CecilHelper.cs" caret="9312" fromTop="13" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:MarkStep.cs" caret="4924" fromTop="35" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2411" fromTop="2" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="3328" fromTop="16" />
   </RecentFiles>
   <RecentEdits>
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker/f:AssemblyResolver.cs" caret="2196" fromTop="20" />
