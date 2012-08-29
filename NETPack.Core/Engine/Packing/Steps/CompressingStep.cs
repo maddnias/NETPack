@@ -5,7 +5,7 @@ using NETPack.Core.Engine.Utils;
 
 namespace NETPack.Core.Engine.Packing.Steps
 {
-    class CompressingStep : PackingStep
+    public class CompressingStep : PackingStep
     {
         private AssemblyDefinition _stubAssembly;
 
@@ -29,8 +29,8 @@ namespace NETPack.Core.Engine.Packing.Steps
         {
             _stubAssembly = StubWorker.GenerateStub();
 
-            _decompressor = CecilHelper.Inject(_stubAssembly.MainModule, PackerContext.Injections["Decompressor"] as TypeDefinition);
-            _loader = CecilHelper.Inject(_stubAssembly.MainModule, PackerContext.Injections["Loader"] as TypeDefinition);
+            _decompressor = CecilHelper.Inject(_stubAssembly.MainModule, Globals.Context.Injections["Decompressor"] as TypeDefinition);
+            _loader = CecilHelper.Inject(_stubAssembly.MainModule, Globals.Context.Injections["Loader"] as TypeDefinition);
 
             base.Initialize();
         }
@@ -44,19 +44,19 @@ namespace NETPack.Core.Engine.Packing.Steps
 
             using(var ms = new MemoryStream())
             {
-                PackerContext.TargetAssembly.Write(ms);
-                var tmpBuff = QuickLZ.compress(ms.ToArray(), 3);
+                Globals.Context.TargetAssembly.Write(ms);
+                var tmpBuff = QuickLZ.compress(ms.ToArray(), (Globals.Context as StandardContext).CompressionLevel);
 
                 _stubAssembly.MainModule.Resources.Add(new EmbeddedResource("X", ManifestResourceAttributes.Public,
                                                                             tmpBuff));
 
-                Logger.VLog(string.Format("[Pack(Main)] -> Packed assembly: {0}", PackerContext.TargetAssembly.Name.Name));
+                Logger.VLog(string.Format("[Pack(Main)] -> Packed assembly: {0}", Globals.Context.TargetAssembly.Name.Name));
             }
         }
 
         public override void FinalizeStep()
         {
-            PackerContext.TargetAssembly = _stubAssembly;
+            Globals.Context.TargetAssembly = _stubAssembly;
             base.FinalizeStep();
         }
     }

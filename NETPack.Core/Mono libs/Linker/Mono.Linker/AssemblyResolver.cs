@@ -65,7 +65,7 @@ namespace NETPack.Core.Linker.Mono.Linker {
 		public void CacheAssembly (AssemblyDefinition assembly)
 		{
 			_assemblies [assembly.Name.Name] = assembly;
-			base.AddSearchDirectory (Path.GetDirectoryName (PackerContext.InPath));
+            base.AddSearchDirectory(Path.GetDirectoryName(Globals.Context.InPath));
 		}
 	}
 }

@@ -39,7 +39,7 @@ namespace NETPack.Core.Engine.Packing.Steps
             var pipeLine = GetStandardPipeline();
             var ctx = new LinkContext(pipeLine)
                           {
-                              OutputDirectory = Path.GetDirectoryName(PackerContext.InPath)
+                              OutputDirectory = Path.GetDirectoryName(Globals.Context.InPath)
                           };
 
             pipeLine.Process(ctx);
@@ -49,7 +49,7 @@ namespace NETPack.Core.Engine.Packing.Steps
         {
             var p = new Pipeline();
 
-            p.AppendStep(new ResolveFromAssemblyStep(PackerContext.InPath));
+            p.AppendStep(new ResolveFromAssemblyStep(Globals.Context.InPath));
             p.AppendStep(new LoadReferencesStep());
             p.AppendStep(new BlacklistStep());
             p.AppendStep(new TypeMapStep());

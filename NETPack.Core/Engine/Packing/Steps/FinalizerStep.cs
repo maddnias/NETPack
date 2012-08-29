@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Mono.Cecil;
@@ -8,7 +9,7 @@ using NETPack.Core.Engine.Utils;
 
 namespace NETPack.Core.Engine.Packing.Steps
 {
-    class FinalizerStep : PackingStep
+    public class FinalizerStep : PackingStep
     {
         public FinalizerStep(AssemblyDefinition asmDef)
             : base(asmDef)
@@ -26,13 +27,24 @@ namespace NETPack.Core.Engine.Packing.Steps
 
         public override void ProcessStep()
         {
-            PackerContext.TargetAssembly.Write(PackerContext.OutPath);
-            Logger.VLog("[Finalize(writer)] -> Output written to disk");
+            if ((Globals.Context as StandardContext).MoveReferences)
+            {
+                foreach (var asm in (Globals.Context as StandardContext).MarkedReferences)
+                {
+                    asm.Key.Write(Path.Combine(Path.GetDirectoryName(Globals.Context.OutPath),
+                                               asm.Key.Name.Name + ".dll"));
 
-            Logger.VLog("[Finalize(logger)] -> Disposed logger stream");
-            PackerContext.LogWriter.Flush();
-            PackerContext.LogWriter.Close();
-            PackerContext.LogWriter.Dispose();
+                    Logger.VLog(string.Format("[Finalize(MoveRef)] -> Moved reference ({0}) to output", asm.Key.Name.Name));
+                }
+            }
+
+            Globals.Context.TargetAssembly.Write(Globals.Context.OutPath);
+            Logger.VLog("[Finalize(Writer)] -> Output written to disk");
+
+            Logger.VLog("[Finalize(Logger)] -> Disposed logger stream");
+            Globals.Context.LogWriter.Flush();
+            Globals.Context.LogWriter.Close();
+            Globals.Context.LogWriter.Dispose();
        }
     }
 }

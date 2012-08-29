@@ -11,13 +11,13 @@ namespace NETPack.Core.Engine.Utils.Extensions
     {
         public static AssemblyDefinition ResolveReference(this AssemblyNameReference @ref)
         {
-            var fixedPath = Path.Combine(Path.GetDirectoryName(PackerContext.InPath), @ref.Name + ".dll");
+            var fixedPath = Path.Combine(Path.GetDirectoryName(Globals.Context.InPath), @ref.Name + ".dll");
             return AssemblyDefinition.ReadAssembly(fixedPath);
         }
 
         public static AssemblyDefinition ResolveReference(this AssemblyNameReference @ref, out string path)
         {
-            path = Path.Combine(Path.GetDirectoryName(PackerContext.InPath), @ref.Name + ".dll");
+            path = Path.Combine(Path.GetDirectoryName(Globals.Context.InPath), @ref.Name + ".dll");
             return AssemblyDefinition.ReadAssembly(path);
         }
     }

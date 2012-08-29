@@ -9,7 +9,7 @@ using NETPack.Core.Engine.Utils.Extensions;
 
 namespace NETPack.Core.Engine.Packing.Steps
 {
-    class AnalysisStep : PackingStep
+    public class AnalysisStep : PackingStep
     {
         private Dictionary<Analyzer, dynamic> _analyzers;
 
@@ -51,7 +51,7 @@ namespace NETPack.Core.Engine.Packing.Steps
             _analyzers.ForEach(kvp => kvp.Key.Analyze(kvp.Value));
             _analyzers.ForEach(kvp =>
                                    {
-                                       PackerContext.AnalysisDatabase.Add(kvp.Key.AnalyzationKey,
+                                       Globals.Context.AnalysisDatabase.Add(kvp.Key.AnalyzationKey,
                                                                           kvp.Key.Entry);
                                        kvp.Key.Output();
                                    });

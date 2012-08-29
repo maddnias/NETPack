@@ -60,8 +60,8 @@ namespace NETPack.Core.Linker.Mono.Linker.Steps {
 
 			switch (Annotations.GetAction (assembly)) {
 			case AssemblyAction.Link:
-                    if (assembly.FullName == PackerContext.TargetAssembly.FullName)
-                        PackerContext.TargetAssembly = assembly;
+                    if (assembly.FullName == Globals.Context.TargetAssembly.FullName)
+                        Globals.Context.TargetAssembly = assembly;
 				//assembly.Write (GetAssemblyFileName (assembly, directory), SaveSymbols (assembly));
 				break;
 			case AssemblyAction.Copy:
@@ -70,8 +70,8 @@ namespace NETPack.Core.Linker.Mono.Linker.Steps {
 				break;
 			case AssemblyAction.Delete:
 				CloseSymbols (assembly);
-                
-                PackerContext.MarkedAssemblies.Add(assembly.FullName);
+
+                Globals.Context.MarkedAssemblies.Add(assembly.FullName);
 			    var target = GetAssemblyFileName(assembly, directory);
                 if (File.Exists(target))
                 {

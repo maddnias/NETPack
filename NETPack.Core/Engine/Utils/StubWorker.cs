@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
+using NETPack.Core.Engine.Structs__Enums___Interfaces;
 using NETPack.Core.Engine.Utils.Extensions;
 
 namespace NETPack.Core.Engine.Utils
@@ -16,9 +17,9 @@ namespace NETPack.Core.Engine.Utils
         {
             var stub = AssemblyDefinition.CreateAssembly(new AssemblyNameDefinition("netpack", new Version(1, 0, 0, 0)), "netpack", ModuleKind.Console);
 
-            stub.MainModule.Kind = PackerContext.AnalysisDatabase["Subsys"].Values[0];
-            stub.MainModule.Architecture = PackerContext.AnalysisDatabase["Architecture"].Values[0];
-            stub.MainModule.Runtime = PackerContext.AnalysisDatabase["CLRVer"].Values[0];
+            stub.MainModule.Kind = Globals.Context.AnalysisDatabase["Subsys"].Values[0];
+            stub.MainModule.Architecture = Globals.Context.AnalysisDatabase["Architecture"].Values[0];
+            stub.MainModule.Runtime = Globals.Context.AnalysisDatabase["CLRVer"].Values[0];
 
             return stub;
         }
@@ -31,33 +32,27 @@ namespace NETPack.Core.Engine.Utils
             stub.MainModule.Types.Add(loader);
             stub.EntryPoint = loader.Methods.First(x => x.Name == "Main");
 
-            if (PackerContext.AnalysisDatabase["Entrypoint"].Values[0].Count == 0)
+            if (Globals.Context.AnalysisDatabase["Entrypoint"].Values[0].Count == 0)
                 StripArguments(loader);
 
-            if(PackerContext.AnalysisDatabase["AsmRef"].Values.Count >= 1)
-                PackReferences(ref stub, out resolver);
+            if(Globals.Context.AnalysisDatabase["AsmRef"].Values.Count >= 1)
+                MarkReferences(stub, out resolver);
         }
 
-        private static void PackReferences(ref AssemblyDefinition stub, out TypeDefinition resolver)
+        private static void MarkReferences(AssemblyDefinition stub, out TypeDefinition resolver)
         {
             var localAsmDef = AssemblyDefinition.ReadAssembly(Assembly.GetExecutingAssembly().Location);
             resolver = CecilHelper.Inject(stub.MainModule, localAsmDef.GetInjection("Resolver") as TypeDefinition);
 
             stub.MainModule.Types.Add(resolver);
 
-            foreach (var @ref in PackerContext.AnalysisDatabase["AsmRef"].Values)
+            foreach (var @ref in Globals.Context.AnalysisDatabase["AsmRef"].Values)
             {
-                //var fixedPath = Path.Combine(Path.GetDirectoryName(PackerContext.InPath), @ref.Name + ".dll");
-
-                //AssemblyDefinition asm = AssemblyDefinition.ReadAssembly(fixedPath);
-
                 string fixedPath;
                 var asm = (@ref as AssemblyNameReference).ResolveReference(out fixedPath);
 
-                var buff = File.ReadAllBytes(fixedPath);
-                stub.MainModule.Resources.Add(new EmbeddedResource(asm.Name.Name.MangleName(), ManifestResourceAttributes.Public, QuickLZ.compress(buff, 3)));
-
-                Logger.VLog(string.Format("[Pack(Ref)] -> Packed reference: {0}", asm.Name.Name));
+                (Globals.Context as StandardContext).MarkedReferences.Add(asm, fixedPath);
+                Logger.VLog(string.Format("[Marking(Ref)] -> Marked reference ({0})", asm.Name.Name));
             }
 
             var ilProc = stub.EntryPoint.Body.GetILProcessor();

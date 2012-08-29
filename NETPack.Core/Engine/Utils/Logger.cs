@@ -35,7 +35,7 @@ namespace NETPack.Core.Engine.Utils
 
         public static void VLog(string message, bool newLine = true)
         {
-            if (PackerContext.@LogLevel.HasFlag(LogLevel.Verbose))
+            if (Globals.Context.@LogLevel == LogLevel.Verbose)
                 if (newLine)
                     Console.WriteLine(Indentation + message);
                 else
@@ -47,26 +47,33 @@ namespace NETPack.Core.Engine.Utils
 
         public static void SLog(string message)
         {
-            if (PackerContext.@LogLevel.HasFlag(LogLevel.Subtle))
+            if (Globals.Context.@LogLevel.HasFlag(LogLevel.Subtle))
                 Console.WriteLine(Indentation + message);
 
-            if (PackerContext.@LogLevel.HasFlag(LogLevel.Log))
-                PackerContext.LogWriter.WriteLine(Indentation + message);
+            if (Globals.Context.@LogLevel.HasFlag(LogLevel.Log))
+                Globals.Context.LogWriter.WriteLine(Indentation + message);
         }
 
         public static void FLog(string message, bool newLine = true)
         {
-            if (PackerContext.@LogLevel.HasFlag(LogLevel.Log))
+            if (Globals.Context.@LogLevel.HasFlag(LogLevel.Log))
                 if(newLine)
-                    PackerContext.LogWriter.WriteLine(Indentation + message);
+                    Globals.Context.LogWriter.WriteLine(Indentation + message);
                 else
-                    PackerContext.LogWriter.Write(Indentation + message);
+                    Globals.Context.LogWriter.Write(Indentation + message);
         }
 
-        public static void GLog(string message)
+        public static void GLog(string message, bool newLine = true)
         {
-            Console.WriteLine(Indentation + message);
-            PackerContext.LogWriter.WriteLine(Indentation + message);
+            if (newLine)
+                Console.WriteLine(Indentation + message);
+            else
+                Console.Write(Indentation + message);
+
+         //   if (newLine)
+            //    Globals.Context.LogWriter.WriteLine(Indentation + message);
+         //   else
+             //   Globals.Context.LogWriter.Write(Indentation + message);
         }
     }
 }

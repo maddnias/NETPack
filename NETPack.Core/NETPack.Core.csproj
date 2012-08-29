@@ -52,6 +52,7 @@
     <Compile Include="Engine\Packing\Steps\LinkerStep.cs" />
     <Compile Include="Engine\Packing\Steps\InitializerStep.cs" />
     <Compile Include="Engine\Packing\Steps\FinalizerStep.cs" />
+    <Compile Include="Engine\Packing\Steps\ReferencePackerStep.cs" />
     <Compile Include="Engine\QuickLZ.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\AnalysisEntry.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\Analyzer.cs" />
@@ -60,8 +61,10 @@
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\IPackingStep.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\LogLevel.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\PackingStep.cs" />
+    <Compile Include="Engine\Structs, Enums &amp; Interfaces\StandardContext.cs" />
     <Compile Include="Engine\Utils\Bugster.cs" />
     <Compile Include="Engine\Utils\CecilHelper.cs" />
+    <Compile Include="Engine\Utils\Extensions\Array.cs" />
     <Compile Include="Engine\Utils\Extensions\AssemblyDefinition.cs" />
     <Compile Include="Engine\Utils\Extensions\AssemblyNameReference.cs" />
     <Compile Include="Engine\Utils\Extensions\Dictionary.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="Engine\Utils\Extensions\String.cs" />
     <Compile Include="Engine\Utils\Logger.cs" />
     <Compile Include="Engine\Utils\StubWorker.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Injections\Decompressor.cs" />
     <Compile Include="Injections\Loader.cs" />
     <Compile Include="Injections\Resolver.cs" />

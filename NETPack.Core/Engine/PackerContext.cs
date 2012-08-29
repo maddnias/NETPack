@@ -8,23 +8,23 @@ using NETPack.Core.Engine.Structs__Enums___Interfaces;
 
 namespace NETPack.Core.Engine
 {
-    public static class PackerContext
+    public abstract class PackerContext
     {
-        public static bool VerifyContext()
+        public virtual bool VerifyContext()
         {
             return !@LogLevel.HasFlag(LogLevel.Subtle) || !@LogLevel.HasFlag(LogLevel.Verbose);
         }
 
-        public static List<string> MarkedAssemblies = new List<string>();
-        public static AssemblyDefinition TargetAssembly;
-        public static LogLevel @LogLevel;
-        public static Dictionary<string, AnalysisEntry> AnalysisDatabase = new Dictionary<string, AnalysisEntry>();
-        public static StreamWriter LogWriter;
-        public static string LocalPath;
+        public List<string> MarkedAssemblies = new List<string>();
+        public AssemblyDefinition TargetAssembly;
+        public LogLevel @LogLevel = LogLevel.Subtle;
+        public Dictionary<string, AnalysisEntry> AnalysisDatabase = new Dictionary<string, AnalysisEntry>();
+        public StreamWriter LogWriter;
+        public string LocalPath;
 
-        public static Dictionary<string, IMemberDefinition> Injections;
+        public Dictionary<string, IMemberDefinition> Injections;
 
-        public static string InPath;
-        public static string OutPath;
+        public string InPath;
+        public string OutPath;
     }
 }

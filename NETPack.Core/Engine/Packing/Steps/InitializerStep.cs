@@ -10,11 +10,9 @@ using NETPack.Core.Engine.Structs__Enums___Interfaces;
 using NETPack.Core.Engine.Utils;
 using NETPack.Core.Engine.Utils.Extensions;
 
-using ctx = NETPack.Core.Engine.PackerContext;
-
 namespace NETPack.Core.Engine.Packing.Steps
 {
-    class InitializerStep : PackingStep
+    public class InitializerStep : PackingStep
     {
         private AssemblyDefinition _localAsmDef;
 
@@ -35,16 +33,16 @@ namespace NETPack.Core.Engine.Packing.Steps
         public override void Initialize()
         {
             _localAsmDef = AssemblyDefinition.ReadAssembly(Assembly.GetExecutingAssembly().Location);
-            ctx.Injections = new Dictionary<string, IMemberDefinition>();
+            Globals.Context.Injections = new Dictionary<string, IMemberDefinition>();
 
             base.Initialize();
         }
 
         public override void ProcessStep()
         {
-            ctx.Injections.Add("Decompressor", _localAsmDef.GetInjection("Decompressor"));
-            ctx.Injections.Add("Loader", _localAsmDef.GetInjection("Loader"));
-            ctx.Injections.Add("Resolver", _localAsmDef.GetInjection("Resolver"));
+            Globals.Context.Injections.Add("Decompressor", _localAsmDef.GetInjection("Decompressor"));
+            Globals.Context.Injections.Add("Loader", _localAsmDef.GetInjection("Loader"));
+            Globals.Context.Injections.Add("Resolver", _localAsmDef.GetInjection("Resolver"));
         }
     }
 }

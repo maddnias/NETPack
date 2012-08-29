@@ -16,6 +16,8 @@ namespace NETPack.Core
 {
     public class Packer
     {
+#region headers
+
         public const string Header =
             @"
  _        _______ _________ _______  _______  _______  _          _______     __       _______ 
@@ -46,17 +48,23 @@ ________________________________________________________________
 Created by UbbeLoL | hackforums.net | board.b-at-s.info 
 ________________________________________________________________";
 
-        public Packer(string inPath)
-        {
-            Logger.FLog(Header + "\r\n\r\n");
-            Logger.VLog(ConsoleHeader + "\r\n\r\n");
+#endregion
 
-            PackerContext.InPath = inPath;
-            PackerContext.OutPath = Path.Combine(Path.GetDirectoryName(inPath), "NETPack_Output", Path.GetFileName(inPath) + "_packed.exe");
-            PackerContext.LogLevel = LogLevel.Verbose | LogLevel.Log;
-            PackerContext.LocalPath = Assembly.GetExecutingAssembly().Location.GetPath();
-            PackerContext.LogWriter = new StreamWriter(Path.Combine(PackerContext.LocalPath, "log.txt"));
-            PackerContext.TargetAssembly = AssemblyDefinition.ReadAssembly(PackerContext.InPath);
+        public Packer(PackerContext ctx)
+        {
+            Globals.Context = ctx;
+
+            ctx.InPath = ctx.InPath;
+            //ctx.OutPath = Path.Combine(Path.GetDirectoryName(ctx.InPath), "NETPack_Output", Path.GetFileName(ctx.InPath) + "_packed.exe");
+            ctx.LocalPath = Assembly.GetExecutingAssembly().Location.GetPath();
+            ctx.LogWriter = new StreamWriter(Path.Combine(ctx.LocalPath, "log.txt"));
+            ctx.TargetAssembly = AssemblyDefinition.ReadAssembly(ctx.InPath);
+
+            if (!ctx.VerifyContext())
+                throw new Exception("Failed to verify context!");
+
+            Logger.FLog(Header + "\r\n\r\n");
+            Logger.GLog(ConsoleHeader + "\r\n\r\n");
 
             var bugster = new BugReporter("5351ddb5009c5b025fd1a89409b3f262", new NETPackExceptionFormatter());
 
@@ -75,25 +83,25 @@ ________________________________________________________________";
 
         public void PackFile()
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(PackerContext.InPath) + "\\NETPack_Output");
+            Directory.CreateDirectory(Path.GetDirectoryName(Globals.Context.InPath) + "\\NETPack_Output");
             InternalPack();
         }
 
         public void UnpackFile()
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(PackerContext.InPath) + "\\NETPack_Output");
+            Directory.CreateDirectory(Path.GetDirectoryName(Globals.Context.InPath) + "\\NETPack_Output");
             InternalUnpack();
         }
 
         private void InternalUnpack()
         {
-            foreach(var res in PackerContext.TargetAssembly.MainModule.Resources)
+            foreach (var res in Globals.Context.TargetAssembly.MainModule.Resources)
             {
                 if (res.Name == "X")
-                    File.WriteAllBytes(Path.Combine(Path.GetDirectoryName(PackerContext.OutPath), "Main.exe"),
+                    File.WriteAllBytes(Path.Combine(Path.GetDirectoryName(Globals.Context.OutPath), "Main.exe"),
                                        QuickLZ.decompress((res as EmbeddedResource).GetResourceData()));
                 else
-                    File.WriteAllBytes(Path.Combine(Path.GetDirectoryName(PackerContext.OutPath), res.Name.MangleName() + ".dll"),
+                    File.WriteAllBytes(Path.Combine(Path.GetDirectoryName(Globals.Context.OutPath), res.Name.MangleName() + ".dll"),
                                        QuickLZ.decompress((res as EmbeddedResource).GetResourceData()));
 
                 Logger.VLog("Unpacked file: " + (res.Name == "X" ? "X (Main assembly)" : res.Name.MangleName() + ".dll"));
@@ -104,22 +112,15 @@ ________________________________________________________________";
 
         private void InternalPack()
         {
-            var steps = new List<PackingStep>
-                            {
-                                //new LinkerStep(PackerContext.TargetAssembly),
-                                new AnalysisStep(PackerContext.TargetAssembly),
-                                new InitializerStep(PackerContext.TargetAssembly),
-                                new CompressingStep(PackerContext.TargetAssembly),
-                                new FinalizerStep(PackerContext.TargetAssembly),
-                            };
-            var initSize = new FileInfo(PackerContext.InPath).Length;
+            var steps = (Globals.Context as StandardContext).PackingSteps;
+            var initSize = new FileInfo(Globals.Context.InPath).Length;
             var endSize = 0;
 
             var sw = new Stopwatch();
             sw.Start();
 
-            Logger.VLog(string.Format("Initialized packing process at [{0}]\r\nTarget: [{1}]\r\n\r\n",
-                                      DateTime.Now.ToString("HH:mm:ss"), PackerContext.TargetAssembly.FullName));
+            Logger.GLog(string.Format("Initialized packing process at [{0}]\r\nTarget: [{1}]\r\n\r\n",
+                                      DateTime.Now.ToString("HH:mm:ss"), Globals.Context.TargetAssembly.FullName));
 
             foreach(var step in steps.FindAll(x => !x.Delay))
             {
@@ -140,9 +141,9 @@ ________________________________________________________________";
             sw.Stop();
 
             var ratio =
-                Convert.ToInt32(-(100 - initSize*100/(endSize = (int) new FileInfo(PackerContext.OutPath).Length)));
+                Convert.ToInt32(-(100 - initSize * 100 / (endSize = (int)new FileInfo(Globals.Context.OutPath).Length)));
 
-            Logger.VLog(string.Format("\nFile size reduced by "), false);
+            Logger.GLog(string.Format("\nFile size reduced by "), false);
 
             if (ratio >= 0 && ratio <= 20)
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -151,12 +152,12 @@ ________________________________________________________________";
             if(ratio <= -1)
                 Console.ForegroundColor = ConsoleColor.Red;
 
-            Logger.VLog("~" + ratio + "%", false);
+            Logger.GLog("~" + ratio + "%", false);
 
             Console.ForegroundColor = ConsoleColor.Gray;
 
-            Logger.VLog(string.Format(" ({0} -> {1})", ((int)initSize).GetSuffix(), endSize.GetSuffix()));
-            Logger.VLog(string.Format("\r\nPacking process finished at [{0}]\r\nTotal time: [{1}]", DateTime.Now.ToString("HH:mm:ss"), sw.Elapsed));
+            Logger.GLog(string.Format(" ({0} -> {1})", ((int)initSize).GetSuffix(), endSize.GetSuffix()));
+            Logger.GLog(string.Format("\r\nPacking process finished at [{0}]\r\nTotal time: [{1}]", DateTime.Now.ToString("HH:mm:ss"), sw.Elapsed));
 
             Console.ReadLine();
         }
