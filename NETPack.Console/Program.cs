@@ -56,6 +56,14 @@ namespace NETPack.Console
                                     {"u|unpack", "Unpacks file | --unpack", u => { if(u != null)
                                     {
                                         var up = new Packer(_ctx);
+
+                                        if (!IsPacked(asmDef))
+                                        {
+                                            CConsole.WriteLine("File not packed?");
+                                            CConsole.ReadLine();
+
+                                            Environment.Exit(-1);
+                                        }
                                         up.UnpackFile();
                                     }}}
                                 };
@@ -87,5 +95,9 @@ namespace NETPack.Console
             Environment.Exit(-1);
         }
       
+        public static bool IsPacked(AssemblyDefinition asm)
+        {
+            return asm.MainModule.CustomAttributes.FirstOrDefault(x => x.AttributeType.Name == "netpackAttrib") != null;
+        }
     }
 }
