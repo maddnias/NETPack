@@ -43,6 +43,7 @@ namespace NETPack.Core.Engine.Packing.Steps
             Globals.Context.Injections.Add("Decompressor", _localAsmDef.GetInjection("Decompressor"));
             Globals.Context.Injections.Add("Loader", _localAsmDef.GetInjection("Loader"));
             Globals.Context.Injections.Add("Resolver", _localAsmDef.GetInjection("Resolver"));
+            Globals.Context.Injections.Add("Watermark", _localAsmDef.GetInjection("Watermark"));
         }
     }
 }

@@ -27,6 +27,11 @@ namespace NETPack.Core.Engine.Packing.Steps
 
         public override void ProcessStep()
         {
+            var watermark = CecilHelper.Inject(Globals.Context.TargetAssembly.MainModule, (Globals.Context.Injections["Watermark"] as TypeDefinition));
+
+            Globals.Context.TargetAssembly.MainModule.Types.Add(watermark);
+            Globals.Context.TargetAssembly.MainModule.CustomAttributes.Add(new CustomAttribute(watermark.Methods[0]));
+
             if ((Globals.Context as StandardContext).MoveReferences)
             {
                 foreach (var asm in (Globals.Context as StandardContext).MarkedReferences)

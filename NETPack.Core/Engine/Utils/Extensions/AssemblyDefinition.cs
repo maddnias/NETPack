@@ -33,7 +33,11 @@ namespace NETPack.Core.Engine.Utils.Extensions
                     target.Name = "RS";
 
                     return target;
-                    break;
+
+                case "Watermark":
+                    target.Name = "netpackAttrib";
+
+                    return target;
             }
 
             throw new Exception("Missing injection");

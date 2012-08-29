@@ -52,7 +52,12 @@ namespace NETPack.Console
                                     {"l|level=", "Sets compression level (1 or 3) | --level=(1/3)", (int l) =>
                                                                                         { _ctx.CompressionLevel = l; }},
                                     {"h|help", "Displays info about commands | --help", h => { if(h != null)
-                                                                                            PrintHelp();}}
+                                                                                            PrintHelp();}},
+                                    {"u|unpack", "Unpacks file | --unpack", u => { if(u != null)
+                                    {
+                                        var up = new Packer(_ctx);
+                                        up.UnpackFile();
+                                    }}}
                                 };
 
             try

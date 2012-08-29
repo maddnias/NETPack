@@ -103,7 +103,7 @@ ________________________________________________________________";
                     File.WriteAllBytes(Path.Combine(Path.GetDirectoryName(Globals.Context.OutPath), res.Name.MangleName() + ".dll"),
                                        QuickLZ.decompress((res as EmbeddedResource).GetResourceData()));
 
-                Logger.VLog("Unpacked file: " + (res.Name == "X" ? "X (Main assembly)" : res.Name.MangleName() + ".dll"));
+                Logger.GLog("Unpacked file: " + (res.Name == "X" ? "X (Main assembly)" : res.Name.MangleName() + ".dll"));
             }
 
             Console.ReadLine();

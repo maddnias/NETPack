@@ -77,6 +77,7 @@
     <Compile Include="Injections\Decompressor.cs" />
     <Compile Include="Injections\Loader.cs" />
     <Compile Include="Injections\Resolver.cs" />
+    <Compile Include="Injections\Watermark.cs" />
     <Compile Include="Packer.cs" />
     <Compile Include="Mono libs\Linker\Mono.Linker.Steps\BaseStep.cs" />
     <Compile Include="Mono libs\Linker\Mono.Linker.Steps\BlacklistStep.cs" />
