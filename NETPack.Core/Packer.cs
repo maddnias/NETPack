@@ -54,8 +54,7 @@ ________________________________________________________________";
         {
             Globals.Context = ctx;
 
-            ctx.InPath = ctx.InPath;
-            //ctx.OutPath = Path.Combine(Path.GetDirectoryName(ctx.InPath), "NETPack_Output", Path.GetFileName(ctx.InPath) + "_packed.exe");
+            ctx.OutPath = ctx.OutPath ?? Path.Combine(Path.GetDirectoryName(ctx.InPath), "NETPack_Output", Path.GetFileName(ctx.InPath) + "_packed.exe");
             ctx.LocalPath = Assembly.GetExecutingAssembly().Location.GetPath();
             ctx.LogWriter = new StreamWriter(Path.Combine(ctx.LocalPath, "log.txt"));
             ctx.TargetAssembly = AssemblyDefinition.ReadAssembly(ctx.InPath);
@@ -68,7 +67,7 @@ ________________________________________________________________";
 
             var bugster = new BugReporter("5351ddb5009c5b025fd1a89409b3f262", new NETPackExceptionFormatter());
 
-            AppDomain.CurrentDomain.UnhandledException += bugster.UnhandledExceptionHandler;
+            //AppDomain.CurrentDomain.UnhandledException += bugster.UnhandledExceptionHandler;
             bugster.ReportCompleted += (o, e) =>
                                            {
                                                if (e.WasSuccesful)

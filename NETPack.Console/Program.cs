@@ -38,7 +38,7 @@ namespace NETPack.Console
             }
 
             _ctx.InPath = args[0];
-            _ctx.OutPath = Path.Combine(Path.GetDirectoryName(args[0]), "NETPack_Output");
+            _ctx.OutPath = null;
 
             _ctx.PackingSteps.Add(new AnalysisStep(asmDef));
             _ctx.PackingSteps.Add(new InitializerStep(asmDef));
@@ -46,7 +46,7 @@ namespace NETPack.Console
 
             _stdOptionSet = new OptionSet
                                 {
-                                    {"o|out=", "Set output path manually | --out=path", path => { _ctx.OutPath = path; }},
+                                    {"o|out=", "Set output path manually | --out=path", path => { _ctx.OutPath = Path.Combine(path, asmDef.Name.Name + "_packed.exe"); }},
                                     {"m|merge", "Decides wether to merge references or not | --merge", m => { if (m != null) _ctx.PackingSteps.Add(new ReferencePackerStep(asmDef)); }},
                                     {"v|verbose", "Verbose output | --verbose", v => { if(v != null) _ctx.LogLevel = LogLevel.Verbose; }},
                                     {"l|level=", "Sets compression level (1 or 3) | --level=(1/3)", (int l) =>
