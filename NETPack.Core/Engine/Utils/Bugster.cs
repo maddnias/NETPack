@@ -1,11 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+ * Bugster error reporter - C# client
+ * Copyright (C) 2012 0xDEADDEAD (Dextrey)
+ * ------------------------------------------------------
+ * 
+ * NOTE: If SSL is enabled you must remember that ServicePointManager.ServerCertificateValidationCallback
+ * is temporarily changed during report delivery process to accept the self-signed certificate used by Bugster server.
+ * It's a bad idea to run any code dealing with SSL web requests or ServicePointManager.ServerCertificateValidationCallback
+ * in another thread when report is being sent by Bugster.
+ */
+
+using System;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Net;
+using System.Net.Security;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace NETPack.Core.Engine.Utils
@@ -19,6 +30,9 @@ namespace NETPack.Core.Engine.Utils
     {
         private const string ReportGenerator = "BugReporterC#";
         private const string Server = "http://bugster.dextrey.dy.fi/report.json";
+        private const string SslServer = "https://bugster.dextrey.dy.fi/report.json";
+        private const string SslThumbprint = "BD0F264EDED68A63B82C4802244AEB11413AB69E";
+
         private readonly string _apiKey;
         private readonly IExceptionFormatter _exceptionFormatter;
 
@@ -32,6 +46,11 @@ namespace NETPack.Core.Engine.Utils
         /// Raised when report delivery has either succeeded or failed
         /// </summary>
         public EventHandler<ReportCompletionEventArgs> ReportCompleted;
+
+        /// <summary>
+        /// Set to choose whether SSL connection should be used
+        /// </summary>
+        public bool UseSSL = true;
 
         public BugReporter(string apiKey, IExceptionFormatter exceptionFormatter = null)
         {
@@ -119,7 +138,7 @@ namespace NETPack.Core.Engine.Utils
 
         private bool DoRequest(string json)
         {
-            var request = WebRequest.Create(Server) as HttpWebRequest;
+            var request = WebRequest.Create(UseSSL ? SslServer : Server) as HttpWebRequest;
             if (request == null)
                 throw new Exception("");
 
@@ -129,23 +148,45 @@ namespace NETPack.Core.Engine.Utils
             request.Accept = "text/javascript";
             request.Timeout = 10 * 1000;
 
-            using (var requestWriter = new StreamWriter(request.GetRequestStream()))
-            {
-                requestWriter.Write(json);
-            }
-
-            var response = request.GetResponse() as HttpWebResponse;
+            var oldCallback = ServicePointManager.ServerCertificateValidationCallback;
+            ServicePointManager.ServerCertificateValidationCallback = ServerCertificateValidationCallback;
             string responseString = null;
-            using (var responseReader = new StreamReader(response.GetResponseStream()))
+            try
             {
-                responseString = responseReader.ReadToEnd();
-            }
+                using (var requestWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    requestWriter.Write(json);
+                }
 
+                var response = request.GetResponse() as HttpWebResponse;
+                using (var responseReader = new StreamReader(response.GetResponseStream()))
+                {
+                    responseString = responseReader.ReadToEnd();
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                ServicePointManager.ServerCertificateValidationCallback = oldCallback;
+            }
             if (responseString.Trim() == "OK")
             {
                 return true;
             }
             return false;
+        }
+
+        private bool ServerCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            if (!(certificate is X509Certificate2))
+            {
+                return false;
+            }
+            return (certificate as X509Certificate2).Thumbprint == SslThumbprint;
         }
 
         private string BuildRequestJson(string message, string @class)

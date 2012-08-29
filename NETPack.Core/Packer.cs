@@ -67,7 +67,7 @@ ________________________________________________________________";
 
             var bugster = new BugReporter("5351ddb5009c5b025fd1a89409b3f262", new NETPackExceptionFormatter());
 
-            //AppDomain.CurrentDomain.UnhandledException += bugster.UnhandledExceptionHandler;
+            AppDomain.CurrentDomain.UnhandledException += bugster.UnhandledExceptionHandler;
             bugster.ReportCompleted += (o, e) =>
                                            {
                                                if (e.WasSuccesful)
