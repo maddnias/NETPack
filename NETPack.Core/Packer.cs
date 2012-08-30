@@ -160,37 +160,5 @@ ________________________________________________________________";
 
             Console.ReadLine();
         }
-
-        private void GlobalExcHandler(object sender, UnhandledExceptionEventArgs e)
-        {
-            var error = e.ExceptionObject as Exception;
-            var errorInformation = new StringBuilder();
-
-            errorInformation.Append("Error message:\r\n\t" + error.Message);
-            errorInformation.Append("\r\n\r\nTarget site:\r\n\t" + error.TargetSite);
-            errorInformation.Append("\r\n\r\nInner Exception:\r\n\t" + error.InnerException);
-            errorInformation.Append("\r\n\r\nStack trace:\r\n\r\n");
-
-            foreach (var obj in error.StackTrace)
-                errorInformation.Append(obj.ToString());
-
-            try
-            {
-                File.WriteAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "error.txt"),
-                                  errorInformation.ToString());
-            }
-            catch
-            {
-                // Don't want to go into an endless loop haha
-                Console.WriteLine("Could not write error information file!");
-            }
-
-            Console.WriteLine(
-                "An exception has been thrown which was not handled!\n\nMessage:\n{0}\n\nA text file containing the error information" +
-                " has been generated in NETPack's directory, please send the information to ubbelolhfb@gmail.com",
-                error.Message);
-            Console.ReadLine();
-        }
-
     }
 }

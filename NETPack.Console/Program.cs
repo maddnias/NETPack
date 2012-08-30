@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Mono.Cecil;
 using NETPack.Core;
 using NETPack.Core.Engine.Packing.Steps;
@@ -46,26 +47,57 @@ namespace NETPack.Console
 
             _stdOptionSet = new OptionSet
                                 {
-                                    {"o|out=", "Set output path manually | --out=path", path => { _ctx.OutPath = Path.Combine(path, asmDef.Name.Name + "_packed.exe"); }},
-                                    {"m|merge", "Decides wether to merge references or not | --merge", m => { if (m != null) _ctx.PackingSteps.Add(new ReferencePackerStep(asmDef)); }},
-                                    {"v|verbose", "Verbose output | --verbose", v => { if(v != null) _ctx.LogLevel = LogLevel.Verbose; }},
+                                    {"o|out=", "Set output path manually | --out=path", path =>
+                                                                                            {
+                                                                                                _ctx.OutPath = Path.Combine(path, asmDef.Name.Name + "_packed.exe");
+                                                                                            }},
+
+                                    {"m|merge", "Decides wether to merge references or not | --merge", m =>
+                                                                                                           {
+                                                                                                               if (m != null) _ctx.PackingSteps.Add(new ReferencePackerStep(asmDef));
+                                                                                                           }},
+
+                                    {"v|verbose", "Verbose output | --verbose", v =>
+                                                                                    {
+                                                                                        if(v != null) 
+                                                                                            _ctx.LogLevel = LogLevel.Verbose;
+                                                                                    }},
+
                                     {"l|level=", "Sets compression level (1 or 3) | --level=(1/3)", (int l) =>
-                                                                                        { _ctx.CompressionLevel = l; }},
-                                    {"h|help", "Displays info about commands | --help", h => { if(h != null)
-                                                                                            PrintHelp();}},
-                                    {"u|unpack", "Unpacks file | --unpack", u => { if(u != null)
-                                    {
-                                        var up = new Packer(_ctx);
+                                                                                                        {
+                                                                                                            if (l != 1 && l != 3)
+                                                                                                                throw new OptionException("Invalid compression level", "level");
 
-                                        if (!IsPacked(asmDef))
-                                        {
-                                            CConsole.WriteLine("File not packed?");
-                                            CConsole.ReadLine();
+                                                                                                            _ctx.CompressionLevel = l;
+                                                                                                        }},
 
-                                            Environment.Exit(-1);
-                                        }
-                                        up.UnpackFile();
-                                    }}}
+                                    {"h|help", "Displays info about commands | --help", h =>
+                                                                                            {
+                                                                                                if(h != null) 
+                                                                                                    PrintHelp();
+                                                                                            }},
+
+                                    {"u|unpack", "Unpacks file | --unpack", u => {
+                                                                                     if (u == null) return;
+                                                                                     var up = new Packer(_ctx);
+
+                                                                                     if (!IsPacked(asmDef))
+                                                                                     {
+                                                                                         CConsole.WriteLine("File not packed?");
+                                                                                         CConsole.ReadLine();
+
+                                                                                         Environment.Exit(-1);
+                                                                                     }
+                                                                                     up.UnpackFile();
+                                    }},
+
+                                    {"ap|apmntstate=", "Sets apartment state for loader | --apmntstate=(MTA/STA)", ap =>
+                                                                                                                       {
+                                                                                                                           if(ap != "STA" && ap != "MTA")
+                                                                                                                               throw new OptionException("Invalid apartment state", "apmntstate");
+
+                                                                                                                           _ctx.ApmtState = (ap == "STA" ? ApartmentState.STA : ApartmentState.MTA);
+                                                                                                                       }}
                                 };
 
             try

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 using NETPack.Core.Engine.Structs__Enums___Interfaces;
@@ -77,6 +78,18 @@ namespace NETPack.Core.Engine.Utils
             ilProc.Remove(targetInstr.Next.Next);                           //ldloc.3
             ilProc.Remove(targetInstr.Next);                                //stloc.3
             ilProc.Remove(targetInstr.Next);                                //ldc.i4.0
+        }
+
+        public static void SetApartmentState(ref MethodDefinition mDef)
+        {
+            var ilProc = mDef.Body.GetILProcessor();
+            var targetInstr = mDef.Body.Instructions.First(x => x.Operand != null && x.Operand.ToString().Contains("Thread::SetApartmentState")).Previous; // ldc.i4.X
+
+            // .field public static literal valuetype System.Threading.ApartmentState MTA = int32(1)
+            // .field public static literal valuetype System.Threading.ApartmentState STA = int32(0)
+
+            ilProc.Replace(targetInstr,
+                           ilProc.Create((Globals.Context as StandardContext).ApmtState == ApartmentState.STA ? OpCodes.Ldc_I4_0 : OpCodes.Ldc_I4_1));
         }
 
         public static void StripCoreDependency(ref AssemblyDefinition stub, TypeDefinition decompressor, TypeDefinition resolver)

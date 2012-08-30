@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using Mono.Cecil;
+using NETPack.Core.Engine.Structs__Enums___Interfaces;
 
 namespace NETPack.Core.Engine.Utils.Extensions
 {
@@ -25,6 +28,9 @@ namespace NETPack.Core.Engine.Utils.Extensions
                 case "Loader":
                     (target as TypeDefinition).Namespace = "npack";
                     target.Name = "netpack";
+
+                    var main = (target as TypeDefinition).Methods[0];
+                    StubWorker.SetApartmentState(ref main);
 
                     return target ;
 

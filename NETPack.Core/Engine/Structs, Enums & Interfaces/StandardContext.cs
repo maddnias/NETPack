@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Mono.Cecil;
 
 namespace NETPack.Core.Engine.Structs__Enums___Interfaces
@@ -12,6 +13,7 @@ namespace NETPack.Core.Engine.Structs__Enums___Interfaces
         public Dictionary<AssemblyDefinition, string> MarkedReferences;
         public bool MoveReferences = true;
         public int CompressionLevel = 3;
+        public ApartmentState ApmtState = ApartmentState.STA;
 
         public override bool VerifyContext()
         {
