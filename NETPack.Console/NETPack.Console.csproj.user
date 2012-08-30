@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <StartArguments>"C:\Users\Mattias\Documents\Visual Studio 2010\Projects\ConsoleApplication1\ConsoleApplication1\bin\Release\a\c.exe"</StartArguments>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <StartArguments>"C:\Users\Mattias\Documents\Visual Studio 2010\Projects\Bejeweled Bot\bin\Debug\c.exe" --merge --verbose --apmntstate=MTA</StartArguments>
-  </PropertyGroup>
-</Project>

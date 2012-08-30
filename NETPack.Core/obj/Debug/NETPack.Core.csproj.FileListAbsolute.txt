@@ -1,7 +1,0 @@
-C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\bin\Debug\NETPack.Core.dll
-C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\bin\Debug\NETPack.Core.pdb
-C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\bin\Debug\Mono.Cecil.dll
-C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\bin\Debug\Mono.Cecil.pdb
-C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\obj\Debug\NETPack.Core.csprojResolveAssemblyReference.cache
-C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\obj\Debug\NETPack.Core.dll
-C:\Users\Mattias\Documents\Visual Studio 2010\Projects\NETPack.Core\obj\Debug\NETPack.Core.pdb
