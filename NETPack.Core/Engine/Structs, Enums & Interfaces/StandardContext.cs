@@ -14,6 +14,7 @@ namespace NETPack.Core.Engine.Structs__Enums___Interfaces
         public bool MoveReferences = true;
         public int CompressionLevel = 3;
         public ApartmentState ApmtState = ApartmentState.STA;
+        public bool VerifyOutput = true;
 
         public override bool VerifyContext()
         {

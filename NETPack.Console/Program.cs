@@ -97,7 +97,13 @@ namespace NETPack.Console
                                                                                                                                throw new OptionException("Invalid apartment state", "apmntstate");
 
                                                                                                                            _ctx.ApmtState = (ap == "STA" ? ApartmentState.STA : ApartmentState.MTA);
-                                                                                                                       }}
+                                                                                                                       }},
+                                    
+                                    {"nv|noverify", "Decides wether to verify output file or not | --noverify", nv =>
+                                                                                                                      {
+                                                                                                                          if (nv != null)
+                                                                                                                              _ctx.VerifyOutput = false;
+                                                                                                                      }}
                                 };
 
             try
@@ -111,7 +117,9 @@ namespace NETPack.Console
             }
 
             _ctx.PackingSteps.Add(new FinalizerStep(asmDef));
-            _ctx.PackingSteps.Add(new PEVerifyStep(asmDef));
+            
+            if(_ctx.VerifyOutput)
+                _ctx.PackingSteps.Add(new PEVerifyStep(asmDef));
 
             var p = new Packer(_ctx);
             p.PackFile();
