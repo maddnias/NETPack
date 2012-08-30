@@ -8,6 +8,11 @@ namespace NETPack.Core.Engine.Utils.Extensions
 {
     public static class StringExt
     {
+        public static string ParameterFriendly(this string str)
+        {
+            return @"""" + str + @"""";
+        }
+
         public static string GetPath(this string fullPath)
         {
             return Path.GetDirectoryName(fullPath);

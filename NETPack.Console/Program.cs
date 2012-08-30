@@ -111,6 +111,7 @@ namespace NETPack.Console
             }
 
             _ctx.PackingSteps.Add(new FinalizerStep(asmDef));
+            _ctx.PackingSteps.Add(new PEVerifyStep(asmDef));
 
             var p = new Packer(_ctx);
             p.PackFile();

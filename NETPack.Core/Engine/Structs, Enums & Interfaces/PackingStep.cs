@@ -14,15 +14,17 @@ namespace NETPack.Core.Engine.Structs__Enums___Interfaces
         protected PackingStep(AssemblyDefinition asmDef)
         {
             AsmDef = asmDef;
+            NewLine = true;
         }
 
+        public virtual bool NewLine { get; set; }
         public virtual bool Delay { get { return false; } }
         public abstract string StepDescription { get; }
         public abstract string StepOutput { get; }
 
         public virtual void Output()
         {
-            Logger.GLog(StepOutput);
+            Logger.GLog(StepOutput, NewLine);
         }
 
         public virtual void Initialize()

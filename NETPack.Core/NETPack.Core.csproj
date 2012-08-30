@@ -49,6 +49,7 @@
     <Compile Include="Engine\Packing\Analysis\SubsystemAnalyzer.cs" />
     <Compile Include="Engine\Packing\Steps\AnalysisStep.cs" />
     <Compile Include="Engine\Packing\Steps\CompressingStep.cs" />
+    <Compile Include="Engine\Packing\Steps\PEVerifyStep.cs" />
     <Compile Include="Engine\Packing\Steps\LinkerStep.cs" />
     <Compile Include="Engine\Packing\Steps\InitializerStep.cs" />
     <Compile Include="Engine\Packing\Steps\FinalizerStep.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Engine\Utils\Extensions\ModuleDefinition.cs" />
     <Compile Include="Engine\Utils\Extensions\String.cs" />
     <Compile Include="Engine\Utils\Logger.cs" />
+    <Compile Include="Engine\Utils\PEVerifyWrapper.cs" />
     <Compile Include="Engine\Utils\StubWorker.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Injections\Decompressor.cs" />
@@ -112,6 +114,9 @@
       <Project>{D68133BD-1E63-496E-9EDE-4FBDBF77B486}</Project>
       <Name>Mono.Cecil</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Release\PEVerify.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

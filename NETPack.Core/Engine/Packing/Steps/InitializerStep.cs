@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -32,6 +33,9 @@ namespace NETPack.Core.Engine.Packing.Steps
 
         public override void Initialize()
         {
+            if (!File.Exists("1033\\PEVerify.exe"))
+                throw new FileNotFoundException("PEVerify missing");
+
             _localAsmDef = AssemblyDefinition.ReadAssembly(Assembly.GetExecutingAssembly().Location);
             Globals.Context.Injections = new Dictionary<string, IMemberDefinition>();
 

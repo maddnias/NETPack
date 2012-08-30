@@ -65,10 +65,10 @@ ________________________________________________________________";
             Logger.FLog(Header + "\r\n\r\n");
             Logger.GLog(ConsoleHeader + "\r\n\r\n");
 
-            var bugster = new BugReporter("5351ddb5009c5b025fd1a89409b3f262", new NETPackExceptionFormatter());
+            Globals.Bugster = new BugReporter("5351ddb5009c5b025fd1a89409b3f262", new NETPackExceptionFormatter());
 
-            AppDomain.CurrentDomain.UnhandledException += bugster.UnhandledExceptionHandler;
-            bugster.ReportCompleted += (o, e) =>
+            AppDomain.CurrentDomain.UnhandledException += Globals.Bugster.UnhandledExceptionHandler;
+            Globals.Bugster.ReportCompleted += (o, e) =>
                                            {
                                                if (e.WasSuccesful)
                                                {

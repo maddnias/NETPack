@@ -1,9 +1,5 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:AnalysisStep.cs" caret="316" fromTop="11" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:String.cs" caret="379" fromTop="15" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:CecilHelper.cs" caret="9312" fromTop="13" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:Array.cs" caret="501" fromTop="18" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/f:QuickLZ.cs" caret="2491" fromTop="12" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Globals.cs" caret="216" fromTop="10" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Analysis/f:AssemblyReferenceAnalyzer.cs" caret="1493" fromTop="30" />
@@ -11,7 +7,6 @@
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:LinkerStep.cs" caret="1298" fromTop="26" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyNameReference.cs" caret="523" fromTop="15" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Mono libs/d:Linker/d:Mono.Linker.Steps/f:OutputStep.cs" caret="2420" fromTop="18" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Options.cs" caret="481" fromTop="0" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:AnalysisEntry.cs" caret="0" fromTop="0" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/f:PackerContext.cs" caret="0" fromTop="0" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:Bugster.cs" caret="810" fromTop="6" />
@@ -19,48 +14,53 @@
     <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:AssemblyWriter.cs" caret="55987" fromTop="17" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:Logger.cs" caret="1657" fromTop="19" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:FinalizerStep.cs" caret="1078" fromTop="22" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="3981" fromTop="0" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:ReferencePackerStep.cs" caret="1120" fromTop="31" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:InitializerStep.cs" caret="1222" fromTop="33" />
     <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Watermark.cs" caret="175" fromTop="8" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="588" fromTop="15" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="1668" fromTop="0" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:StandardContext.cs" caret="860" fromTop="27" />
     <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:Import.cs" caret="0" fromTop="0" />
     <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil/f:ModuleDefinition.cs" caret="19500" fromTop="21" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Loader.cs" caret="173" fromTop="7" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyDefinition.cs" caret="1125" fromTop="27" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:StandardContext.cs" caret="373" fromTop="12" />
+    <File id="D68133BD-1E63-496E-9EDE-4FBDBF77B486/d:Mono.Cecil.Cil/f:Instruction.cs" caret="6623" fromTop="17" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:String.cs" caret="318" fromTop="12" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:PEVerifyStep.cs" caret="916" fromTop="21" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="3993" fromTop="25" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="6659" fromTop="30" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Options.cs" caret="495" fromTop="0" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Loader.cs" caret="552" fromTop="19" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="4026" fromTop="31" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyDefinition.cs" caret="926" fromTop="16" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:InitializerStep.cs" caret="871" fromTop="24" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:PEVerifyWrapper.cs" caret="518" fromTop="19" />
   </RecentFiles>
   <RecentEdits>
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:FinalizerStep.cs" caret="1696" fromTop="16" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="1157" fromTop="22" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2949" fromTop="16" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="1598" fromTop="18" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:Bugster.cs" caret="9116" fromTop="260" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:FinalizerStep.cs" caret="1553" fromTop="21" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Watermark.cs" caret="300" fromTop="13" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:InitializerStep.cs" caret="1535" fromTop="36" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyDefinition.cs" caret="1658" fromTop="40" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyDefinition.cs" caret="1651" fromTop="24" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:FinalizerStep.cs" caret="1082" fromTop="24" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2949" fromTop="15" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2949" fromTop="27" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2401" fromTop="13" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2401" fromTop="7" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2949" fromTop="18" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="2401" fromTop="7" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="5072" fromTop="29" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="3183" fromTop="28" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="2959" fromTop="36" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="2589" fromTop="31" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="4000" fromTop="33" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="3970" fromTop="17" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="502" fromTop="12" />
-    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="554" fromTop="14" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:StandardContext.cs" caret="523" fromTop="15" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyDefinition.cs" caret="859" fromTop="23" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyDefinition.cs" caret="1160" fromTop="33" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Loader.cs" caret="252" fromTop="12" />
-    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyDefinition.cs" caret="1125" fromTop="27" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Loader.cs" caret="232" fromTop="11" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Injections/f:Loader.cs" caret="705" fromTop="24" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Options.cs" caret="33088" fromTop="0" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Options.cs" caret="495" fromTop="0" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Structs, Enums &amp; Interfaces/f:StandardContext.cs" caret="522" fromTop="15" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="6104" fromTop="31" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="1913" fromTop="13" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="3370" fromTop="7" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:AssemblyDefinition.cs" caret="1124" fromTop="20" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="3909" fromTop="24" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:StubWorker.cs" caret="4389" fromTop="30" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="3183" fromTop="10" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/f:Packer.cs" caret="7192" fromTop="1" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="5362" fromTop="34" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="4386" fromTop="15" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:InitializerStep.cs" caret="1282" fromTop="32" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:InitializerStep.cs" caret="988" fromTop="26" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:PEVerifyStep.cs" caret="685" fromTop="22" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:PEVerifyStep.cs" caret="1006" fromTop="41" />
+    <File id="6C25A7BD-92FC-4304-B5CA-B046E03DD5C5/f:Program.cs" caret="6659" fromTop="30" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/d:Extensions/f:String.cs" caret="318" fromTop="12" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:PEVerifyStep.cs" caret="458" fromTop="2" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:PEVerifyStep.cs" caret="924" fromTop="21" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Packing/d:Steps/f:PEVerifyStep.cs" caret="1052" fromTop="26" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:PEVerifyWrapper.cs" caret="801" fromTop="17" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:PEVerifyWrapper.cs" caret="1788" fromTop="34" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:PEVerifyWrapper.cs" caret="1608" fromTop="28" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:PEVerifyWrapper.cs" caret="533" fromTop="11" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:PEVerifyWrapper.cs" caret="412" fromTop="15" />
+    <File id="B32DB19A-FA32-40FF-BE86-6F5156EC3C74/d:Engine/d:Utils/f:PEVerifyWrapper.cs" caret="518" fromTop="19" />
   </RecentEdits>
 </RecentFiles>
