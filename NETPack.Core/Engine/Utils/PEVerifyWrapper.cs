@@ -28,7 +28,7 @@ namespace NETPack.Core.Engine.Utils
 
         public PEVerifyWrapper()
         {
-            if (!File.Exists("1033\\PEverify.exe"))
+            if (!File.Exists(Path.Combine(Globals.Context.LocalPath, "1033\\PEverify.exe")))
                 throw new FileNotFoundException("PEVerify missing");
 
             Errors = new List<VerificationError>();
@@ -37,7 +37,7 @@ namespace NETPack.Core.Engine.Utils
                         {
                             StartInfo =
                                 {
-                                    FileName = "1033\\PEVerify.exe",
+                                    FileName = Path.Combine(Globals.Context.LocalPath, "1033\\PEverify.exe"),
                                     Arguments = Globals.Context.OutPath.ParameterFriendly() + " /md /il /verbose",
                                     RedirectStandardOutput = true,
                                     UseShellExecute = false,

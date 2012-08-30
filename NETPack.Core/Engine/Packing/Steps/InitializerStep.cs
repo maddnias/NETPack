@@ -33,7 +33,7 @@ namespace NETPack.Core.Engine.Packing.Steps
 
         public override void Initialize()
         {
-            if (!File.Exists("1033\\PEVerify.exe"))
+            if (!File.Exists(Path.Combine(Globals.Context.LocalPath ,"1033\\PEVerify.exe")))
                 throw new FileNotFoundException("PEVerify missing");
 
             _localAsmDef = AssemblyDefinition.ReadAssembly(Assembly.GetExecutingAssembly().Location);
