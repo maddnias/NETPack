@@ -50,7 +50,7 @@ ________________________________________________________________";
 
 #endregion
 
-        public Packer(PackerContext ctx)
+        public Packer(IPackerContext ctx)
         {
             Globals.Context = ctx;
 
@@ -62,12 +62,12 @@ ________________________________________________________________";
             if (!ctx.VerifyContext())
                 throw new Exception("Failed to verify context!");
 
-            Logger.FLog(Header + "\r\n\r\n");
-            Logger.GLog(ConsoleHeader + "\r\n\r\n");
+           // Logger.FLog(Header + "\r\n\r\n");
+            Globals.Context.UIProvider.GlobalLog(ConsoleHeader + "\r\n\r\n");
 
             Globals.Bugster = new BugReporter("5351ddb5009c5b025fd1a89409b3f262", new NETPackExceptionFormatter());
 
-            AppDomain.CurrentDomain.UnhandledException += Globals.Bugster.UnhandledExceptionHandler;
+            //AppDomain.CurrentDomain.UnhandledException += Globals.Bugster.UnhandledExceptionHandler;
             Globals.Bugster.ReportCompleted += (o, e) =>
                                            {
                                                if (e.WasSuccesful)
@@ -103,7 +103,7 @@ ________________________________________________________________";
                     File.WriteAllBytes(Path.Combine(Path.GetDirectoryName(Globals.Context.OutPath), res.Name.MangleName() + ".dll"),
                                        QuickLZ.decompress((res as EmbeddedResource).GetResourceData()));
 
-                Logger.GLog("Unpacked file: " + (res.Name == "X" ? "X (Main assembly)" : res.Name.MangleName() + ".dll"));
+                Globals.Context.UIProvider.GlobalLog("Unpacked file: " + (res.Name == "X" ? "X (Main assembly)" : res.Name.MangleName() + ".dll"));
             }
 
             Console.ReadLine();
@@ -111,14 +111,14 @@ ________________________________________________________________";
 
         private void InternalPack()
         {
-            var steps = (Globals.Context as StandardContext).PackingSteps;
+            var steps = Globals.Context.PackingSteps;
             var initSize = new FileInfo(Globals.Context.InPath).Length;
             var endSize = 0;
 
             var sw = new Stopwatch();
             sw.Start();
 
-            Logger.GLog(string.Format("Initialized packing process at [{0}]\r\nTarget: [{1}]\r\n\r\n",
+            Globals.Context.UIProvider.GlobalLog(string.Format("Initialized packing process at [{0}]\r\nTarget: [{1}]\r\n\r\n",
                                       DateTime.Now.ToString("HH:mm:ss"), Globals.Context.TargetAssembly.FullName));
 
             foreach(var step in steps.FindAll(x => !x.Delay))
@@ -142,7 +142,7 @@ ________________________________________________________________";
             var ratio =
                 Convert.ToInt32(-(100 - initSize * 100 / (endSize = (int)new FileInfo(Globals.Context.OutPath).Length)));
 
-            Logger.GLog(string.Format("\nFile size reduced by "), false);
+            Globals.Context.UIProvider.GlobalLogNoNewline(string.Format("\nFile size reduced by "));
 
             if (ratio >= 0 && ratio <= 20)
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -151,12 +151,12 @@ ________________________________________________________________";
             if(ratio <= -1)
                 Console.ForegroundColor = ConsoleColor.Red;
 
-            Logger.GLog("~" + ratio + "%", false);
+            Globals.Context.UIProvider.GlobalLogNoNewline("~" + ratio + "%");
 
             Console.ForegroundColor = ConsoleColor.Gray;
 
-            Logger.GLog(string.Format(" ({0} -> {1})", ((int)initSize).GetSuffix(), endSize.GetSuffix()));
-            Logger.GLog(string.Format("\r\nPacking process finished at [{0}]\r\nTotal time: [{1}]", DateTime.Now.ToString("HH:mm:ss"), sw.Elapsed));
+            Globals.Context.UIProvider.GlobalLog(string.Format(" ({0} -> {1})", ((int)initSize).GetSuffix(), endSize.GetSuffix()));
+            Globals.Context.UIProvider.GlobalLog(string.Format("\r\nPacking process finished at [{0}]\r\nTotal time: [{1}]", DateTime.Now.ToString("HH:mm:ss"), sw.Elapsed));
 
             Console.ReadLine();
         }

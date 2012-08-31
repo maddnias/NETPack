@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using Mono.Cecil;
 using NETPack.Core;
+using NETPack.Core.Engine;
 using NETPack.Core.Engine.Packing.Steps;
 using NETPack.Core.Engine.Structs__Enums___Interfaces;
 using NETPack.Core.Engine.Utils.Extensions;
@@ -15,7 +16,7 @@ namespace NETPack.Console
 {
     class Program
     {
-        private static StandardContext _ctx = new StandardContext();
+        private static IPackerContext _ctx = new StandardPackerContext(new ConsoleLogger(LogLevel.Subtle));
         private static OptionSet _stdOptionSet;
 
         static void Main(string[] args)
@@ -40,7 +41,7 @@ namespace NETPack.Console
 
             _ctx.InPath = args[0];
             _ctx.OutPath = null;
-
+            _ctx.Options = new PackerOptionSet();
             _ctx.PackingSteps.Add(new AnalysisStep(asmDef));
             _ctx.PackingSteps.Add(new InitializerStep(asmDef));
             _ctx.PackingSteps.Add(new CompressingStep(asmDef));
@@ -60,7 +61,7 @@ namespace NETPack.Console
                                     {"v|verbose", "Verbose output | --verbose", v =>
                                                                                     {
                                                                                         if(v != null) 
-                                                                                            _ctx.LogLevel = LogLevel.Verbose;
+                                                                                            _ctx.Options.LogLevel = LogLevel.Verbose;
                                                                                     }},
 
                                     {"l|level=", "Sets compression level (1 or 3) | --level=(1/3)", (int l) =>
@@ -68,7 +69,7 @@ namespace NETPack.Console
                                                                                                             if (l != 1 && l != 3)
                                                                                                                 throw new OptionException("Invalid compression level", "level");
 
-                                                                                                            _ctx.CompressionLevel = l;
+                                                                                                            _ctx.Options.CompressionLevel = l;
                                                                                                         }},
 
                                     {"h|help", "Displays info about commands | --help", h =>
@@ -96,13 +97,13 @@ namespace NETPack.Console
                                                                                                                            if(ap != "STA" && ap != "MTA")
                                                                                                                                throw new OptionException("Invalid apartment state", "apmntstate");
 
-                                                                                                                           _ctx.ApmtState = (ap == "STA" ? ApartmentState.STA : ApartmentState.MTA);
+                                                                                                                           _ctx.Options.ApmtState = (ap == "STA" ? ApartmentState.STA : ApartmentState.MTA);
                                                                                                                        }},
                                     
                                     {"nv|noverify", "Decides wether to verify output file or not | --noverify", nv =>
                                                                                                                       {
                                                                                                                           if (nv != null)
-                                                                                                                              _ctx.VerifyOutput = false;
+                                                                                                                              _ctx.Options.VerifyOutput = false;
                                                                                                                       }}
                                 };
 
@@ -117,8 +118,8 @@ namespace NETPack.Console
             }
 
             _ctx.PackingSteps.Add(new FinalizerStep(asmDef));
-            
-            if(_ctx.VerifyOutput)
+
+            if (_ctx.Options.VerifyOutput)
                 _ctx.PackingSteps.Add(new PEVerifyStep(asmDef));
 
             var p = new Packer(_ctx);

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\ConsoleLogger.cs" />
     <Compile Include="Engine\PackerContext.cs" />
     <Compile Include="Engine\Packing\Analysis\CLRVersionAnalyzer.cs" />
     <Compile Include="Engine\Packing\Analysis\AssemblyReferenceAnalyzer.cs" />
@@ -58,8 +59,7 @@
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\AnalysisEntry.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\Analyzer.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\Bugster\NETPackExceptionFormatter.cs" />
-    <Compile Include="Engine\Structs, Enums &amp; Interfaces\IAnalyzer.cs" />
-    <Compile Include="Engine\Structs, Enums &amp; Interfaces\IPackingStep.cs" />
+    <Compile Include="Engine\Structs, Enums &amp; Interfaces\IUserInterfaceProvider.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\LogLevel.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\PackingStep.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\StandardContext.cs" />
@@ -73,6 +73,7 @@
     <Compile Include="Engine\Utils\Extensions\ModuleDefinition.cs" />
     <Compile Include="Engine\Utils\Extensions\String.cs" />
     <Compile Include="Engine\Utils\Logger.cs" />
+    <Compile Include="Engine\Utils\NativeHelper.cs" />
     <Compile Include="Engine\Utils\PEVerifyWrapper.cs" />
     <Compile Include="Engine\Utils\StubWorker.cs" />
     <Compile Include="Globals.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Injections\Loader.cs" />
     <Compile Include="Injections\Resolver.cs" />
     <Compile Include="Injections\Watermark.cs" />
+    <Compile Include="OptionSet.cs" />
     <Compile Include="Packer.cs" />
     <Compile Include="Mono libs\Linker\Mono.Linker.Steps\BaseStep.cs" />
     <Compile Include="Mono libs\Linker\Mono.Linker.Steps\BlacklistStep.cs" />

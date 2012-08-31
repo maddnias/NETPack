@@ -52,8 +52,8 @@ namespace NETPack.Core.Engine.Utils
                 string fixedPath;
                 var asm = (@ref as AssemblyNameReference).ResolveReference(out fixedPath);
 
-                (Globals.Context as StandardContext).MarkedReferences.Add(asm, fixedPath);
-                Logger.VLog(string.Format("[Marking(Ref)] -> Marked reference ({0})", asm.Name.Name));
+                Globals.Context.MarkedReferences.Add(asm, fixedPath);
+                Globals.Context.UIProvider.VerboseLog(string.Format("[Marking(Ref)] -> Marked reference ({0})", asm.Name.Name));
             }
 
             var ilProc = stub.EntryPoint.Body.GetILProcessor();
@@ -89,7 +89,7 @@ namespace NETPack.Core.Engine.Utils
             // .field public static literal valuetype System.Threading.ApartmentState STA = int32(0)
 
             ilProc.Replace(targetInstr,
-                           ilProc.Create((Globals.Context as StandardContext).ApmtState == ApartmentState.STA ? OpCodes.Ldc_I4_0 : OpCodes.Ldc_I4_1));
+                           ilProc.Create(Globals.Context.Options.ApmtState == ApartmentState.STA ? OpCodes.Ldc_I4_0 : OpCodes.Ldc_I4_1));
         }
 
         public static void StripCoreDependency(ref AssemblyDefinition stub, TypeDefinition decompressor, TypeDefinition resolver)

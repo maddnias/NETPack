@@ -11,14 +11,15 @@ using NETPack.Core.Linker.Mono.Linker;
 
 namespace NETPack.Core.Engine.Packing.Analysis
 {
-    public class AssemblyReferenceAnalyzer : Analyzer
+    public class AssemblyReferenceAnalyzer : IAnalyzer
     {
-        public override string AnalyzationKey { get { return "AsmRef"; } }
-        public override AnalysisEntry Entry { get; set; }
+        public List<dynamic> LocalValues { get; set; }
+        public string AnalyzationKey { get { return "AsmRef"; } }
+        public AnalysisEntry Entry { get; set; }
 
         private AssemblyDefinition _asmDef;
 
-        public override void Analyze(object param)
+        public void Analyze(object param)
         {
             _asmDef = (param as AssemblyDefinition);
 
@@ -28,10 +29,15 @@ namespace NETPack.Core.Engine.Packing.Analysis
             Entry = new AnalysisEntry(LocalValues.ToArray());
         }
 
-        public override void Output()
+        public AssemblyReferenceAnalyzer()
+        {
+            LocalValues = new List<dynamic>();
+        }
+
+        public void Output()
         {
             foreach(var @ref in LocalValues)
-                Logger.VLog("[Analyze(AsmRef)] -> Non-core ref:" + @ref.Name);
+                Globals.Context.UIProvider.VerboseLog("[Analyze(AsmRef)] -> Non-core ref:" + @ref.Name);
         }
 
         public AssemblyNameReference[] RecursiveReferenceIdentifier()

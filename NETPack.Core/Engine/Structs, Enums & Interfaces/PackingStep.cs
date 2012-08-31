@@ -7,6 +7,16 @@ using NETPack.Core.Engine.Utils;
 
 namespace NETPack.Core.Engine.Structs__Enums___Interfaces
 {
+    public interface IPackingStep
+    {
+        void Initialize();
+        void ProcessStep();
+        void FinalizeStep();
+        void Output();
+
+        bool Delay { get; }
+    }
+
     public abstract class PackingStep : IPackingStep
     {
         public AssemblyDefinition AsmDef;
@@ -24,17 +34,20 @@ namespace NETPack.Core.Engine.Structs__Enums___Interfaces
 
         public virtual void Output()
         {
-            Logger.GLog(StepOutput, NewLine);
+            if (NewLine)
+                Globals.Context.UIProvider.GlobalLog(StepOutput);
+            else
+                Globals.Context.UIProvider.GlobalLogNoNewline(StepOutput);
         }
 
         public virtual void Initialize()
         {
-            Logger.Indent();
+            Globals.Context.UIProvider.Indent();
         }
         public abstract void ProcessStep();
         public virtual void FinalizeStep()
         {
-            Logger.DeIndent();
+            Globals.Context.UIProvider.DeIndent();
         }
     }
 }

@@ -10,16 +10,23 @@ using NETPack.Core.Engine.Utils.Extensions;
 
 namespace NETPack.Core.Engine.Packing.Analysis
 {
-    public class ReflectionAnalyzer : Analyzer
+    public class ReflectionAnalyzer : IAnalyzer
     {
-        public override string AnalyzationKey
+        public List<dynamic> LocalValues { get; set; }
+
+        public string AnalyzationKey
         {
             get { return "Reflection"; }
         }
 
-        public override AnalysisEntry Entry { get; set; }
+        public AnalysisEntry Entry { get; set; }
 
-        public override void Analyze(object param)
+        public ReflectionAnalyzer()
+        {
+            LocalValues = new List<dynamic>();
+        }
+
+        public void Analyze(object param)
         {
             var asmDef = (param as AssemblyDefinition);
 
@@ -41,9 +48,9 @@ namespace NETPack.Core.Engine.Packing.Analysis
             Entry = new AnalysisEntry(LocalValues[0]);
         }
 
-        public override void Output()
+        public void Output()
         {
-            Logger.VLog("[Analyze(Reflection)] -> " + LocalValues[0].ToString());
+            Globals.Context.UIProvider.VerboseLog("[Analyze(Reflection)] -> " + LocalValues[0].ToString());
         }
     }
 }

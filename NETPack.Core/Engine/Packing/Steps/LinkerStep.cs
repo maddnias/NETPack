@@ -12,11 +12,10 @@ using NETPack.Core.Engine.Utils;
 using NETPack.Core.Engine.Utils.Extensions;
 using NETPack.Core.Linker.Mono.Linker;
 using NETPack.Core.Linker.Mono.Linker.Steps;
-using ctx = NETPack.Core.Engine.PackerContext;
 
 namespace NETPack.Core.Engine.Packing.Steps
 {
-    class LinkerStep : PackingStep
+    class LinkerStep<T> : PackingStep
     {
         private AssemblyDefinition _localAsmDef;
 

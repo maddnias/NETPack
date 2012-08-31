@@ -45,13 +45,13 @@ namespace NETPack.Core.Engine.Packing.Steps
             if(_peverifier.IsSuccess)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Logger.GLog(" 0 errors!");
+                Globals.Context.UIProvider.GlobalLog(" 0 errors!");
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Logger.GLog(string.Format(" {0} errors!", _peverifier.Errors.Count));
+                Globals.Context.UIProvider.GlobalLog(string.Format(" {0} errors!", _peverifier.Errors.Count));
                 Console.ForegroundColor = ConsoleColor.Gray;
 
                 var errorBuilder = new StringBuilder();

@@ -8,16 +8,23 @@ using NETPack.Core.Engine.Utils;
 
 namespace NETPack.Core.Engine.Packing.Analysis
 {
-    public class ArchitectureAnalyzer : Analyzer
+    public class ArchitectureAnalyzer : IAnalyzer
     {
-        public override string AnalyzationKey
+        public List<dynamic> LocalValues { get; set; }
+
+        public string AnalyzationKey
         {
             get { return "Architecture"; }
         }
 
-        public override AnalysisEntry Entry { get; set; }
+        public AnalysisEntry Entry { get; set; }
 
-        public override void Analyze(object param)
+        public ArchitectureAnalyzer()
+        {
+            LocalValues = new List<dynamic>();
+        }
+
+        public void Analyze(object param)
         {
             var asmDef = (param as AssemblyDefinition);
             var targetArchitecture = asmDef.MainModule.Architecture;
@@ -27,9 +34,9 @@ namespace NETPack.Core.Engine.Packing.Analysis
             Entry = new AnalysisEntry(LocalValues[0]);
         }
 
-        public override void Output()
+        public void Output()
         {
-            Logger.VLog("[Analyze(Architecture)] -> Detected: " + LocalValues[0]);
+            Globals.Context.UIProvider.VerboseLog("[Analyze(Architecture)] -> Detected: " + LocalValues[0]);
         }
     }
 }

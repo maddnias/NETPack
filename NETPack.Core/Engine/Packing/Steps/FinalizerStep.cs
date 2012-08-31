@@ -32,21 +32,21 @@ namespace NETPack.Core.Engine.Packing.Steps
             Globals.Context.TargetAssembly.MainModule.Types.Add(watermark);
             Globals.Context.TargetAssembly.MainModule.CustomAttributes.Add(new CustomAttribute(watermark.Methods[0]));
 
-            if ((Globals.Context as StandardContext).MoveReferences)
+            if (Globals.Context.Options.MoveReferences)
             {
-                foreach (var asm in (Globals.Context as StandardContext).MarkedReferences)
+                foreach (var asm in Globals.Context.MarkedReferences)
                 {
                     asm.Key.Write(Path.Combine(Path.GetDirectoryName(Globals.Context.OutPath),
                                                asm.Key.Name.Name + ".dll"));
 
-                    Logger.VLog(string.Format("[Finalize(MoveRef)] -> Moved reference ({0}) to output", asm.Key.Name.Name));
+                    Globals.Context.UIProvider.VerboseLog(string.Format("[Finalize(MoveRef)] -> Moved reference ({0}) to output", asm.Key.Name.Name));
                 }
             }
 
             Globals.Context.TargetAssembly.Write(Globals.Context.OutPath);
-            Logger.VLog("[Finalize(Writer)] -> Output written to disk");
+            Globals.Context.UIProvider.VerboseLog("[Finalize(Writer)] -> Output written to disk");
 
-            Logger.VLog("[Finalize(Logger)] -> Disposed logger stream");
+            Globals.Context.UIProvider.VerboseLog("[Finalize(Logger)] -> Disposed logger stream");
             Globals.Context.LogWriter.Flush();
             Globals.Context.LogWriter.Close();
             Globals.Context.LogWriter.Dispose();

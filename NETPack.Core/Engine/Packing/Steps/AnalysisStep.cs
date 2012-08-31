@@ -11,7 +11,7 @@ namespace NETPack.Core.Engine.Packing.Steps
 {
     public class AnalysisStep : PackingStep
     {
-        private Dictionary<Analyzer, dynamic> _analyzers;
+        private Dictionary<IAnalyzer, dynamic> _analyzers;
 
         public AnalysisStep(AssemblyDefinition asmDef)
             : base(asmDef)
@@ -29,7 +29,7 @@ namespace NETPack.Core.Engine.Packing.Steps
 
         public override void Initialize()
         {
-            _analyzers = new Dictionary<Analyzer, dynamic>
+            _analyzers = new Dictionary<IAnalyzer, dynamic>
                              {
                                  {new CLRVersionAnalyzer(), AsmDef},
                                  {new AssemblyReferenceAnalyzer(), AsmDef},

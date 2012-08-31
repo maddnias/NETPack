@@ -8,23 +8,48 @@ using NETPack.Core.Engine.Structs__Enums___Interfaces;
 
 namespace NETPack.Core.Engine
 {
-    public abstract class PackerContext
+    public interface IPackerContext
     {
-        public virtual bool VerifyContext()
-        {
-            return !@LogLevel.HasFlag(LogLevel.Subtle) || !@LogLevel.HasFlag(LogLevel.Verbose);
-        }
+        bool VerifyContext();
 
-        public List<string> MarkedAssemblies = new List<string>();
-        public AssemblyDefinition TargetAssembly;
-        public LogLevel @LogLevel = LogLevel.Subtle;
-        public Dictionary<string, AnalysisEntry> AnalysisDatabase = new Dictionary<string, AnalysisEntry>();
-        public StreamWriter LogWriter;
-        public string LocalPath;
+        IUserInterfaceProvider UIProvider { get; set; }
+        List<string> MarkedAssemblies { get; set; }
+        AssemblyDefinition TargetAssembly { get; set; }
 
-        public Dictionary<string, IMemberDefinition> Injections;
+        Dictionary<string, AnalysisEntry> AnalysisDatabase { get; set; }
+        StreamWriter LogWriter { get; set; }
+        string LocalPath { get; set; }
+        PackerOptionSet Options { get; set; }
 
-        public string InPath;
-        public string OutPath;
+        List<IPackingStep> PackingSteps { get; set; }
+        Dictionary<AssemblyDefinition, string> MarkedReferences { get; set; }
+
+        Dictionary<string, IMemberDefinition> Injections { get; set; }
+
+        string InPath { get; set; }
+        string OutPath { get; set; }
+    }
+
+    public abstract class PackerContext : IPackerContext
+    {
+        public IUserInterfaceProvider UIProvider { get; set; }
+
+        public abstract bool VerifyContext();
+
+        public List<IPackingStep> PackingSteps { get; set; }
+        public Dictionary<AssemblyDefinition, string> MarkedReferences { get; set; }
+
+        public List<string> MarkedAssemblies { get; set; }
+        public AssemblyDefinition TargetAssembly { get; set; }
+        public Dictionary<string, AnalysisEntry> AnalysisDatabase { get; set; }
+        public StreamWriter LogWriter { get; set; }
+
+        public string LocalPath { get; set; }
+        public PackerOptionSet Options { get; set; }
+
+        public Dictionary<string, IMemberDefinition> Injections { get; set; }
+
+        public string InPath { get; set; }
+        public string OutPath { get; set; }
     }
 }

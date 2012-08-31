@@ -46,12 +46,12 @@ namespace NETPack.Core.Engine.Packing.Steps
             using(var ms = new MemoryStream())
             {
                 Globals.Context.TargetAssembly.Write(ms);
-                var tmpBuff = QuickLZ.compress(ms.ToArray(), (Globals.Context as StandardContext).CompressionLevel);
+                var tmpBuff = QuickLZ.compress(ms.ToArray(), Globals.Context.Options.CompressionLevel);
 
                 _stubAssembly.MainModule.Resources.Add(new EmbeddedResource("X", ManifestResourceAttributes.Public,
                                                                             tmpBuff));
 
-                Logger.VLog(string.Format("[Pack(Main)] -> Packed assembly: {0}", Globals.Context.TargetAssembly.Name.Name));
+                Globals.Context.UIProvider.VerboseLog(string.Format("[Pack(Main)] -> Packed assembly: {0}", Globals.Context.TargetAssembly.Name.Name));
             }
         }
 

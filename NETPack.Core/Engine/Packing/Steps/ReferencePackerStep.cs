@@ -31,16 +31,16 @@ namespace NETPack.Core.Engine.Packing.Steps
         public override void ProcessStep()
         {
             var target = Globals.Context.TargetAssembly;
-            (Globals.Context as StandardContext).MoveReferences = false;
+            Globals.Context.Options.MoveReferences = false;
 
-            foreach(var markedRef in (Globals.Context as StandardContext).MarkedReferences)
+            foreach (var markedRef in Globals.Context.MarkedReferences)
             {
-                var buff = QuickLZ.compress(File.ReadAllBytes(markedRef.Value), (Globals.Context as StandardContext).CompressionLevel);
+                var buff = QuickLZ.compress(File.ReadAllBytes(markedRef.Value), Globals.Context.Options.CompressionLevel);
                 var asm = markedRef.Key;
 
                 target.MainModule.Resources.Add(new EmbeddedResource(asm.Name.Name.MangleName(),
                                                                      ManifestResourceAttributes.Private, buff));
-                Logger.VLog(string.Format("[Packing(Ref)] -> Packed reference ({0})", asm.Name.Name));
+                Globals.Context.UIProvider.VerboseLog(string.Format("[Packing(Ref)] -> Packed reference ({0})", asm.Name.Name));
             }
         }
     }

@@ -7,24 +7,20 @@ using Mono.Cecil;
 
 namespace NETPack.Core.Engine.Structs__Enums___Interfaces
 {
-    public class StandardContext : PackerContext
+    public class StandardPackerContext : PackerContext
     {
-        public List<PackingStep> PackingSteps;
-        public Dictionary<AssemblyDefinition, string> MarkedReferences;
-        public bool MoveReferences = true;
-        public int CompressionLevel = 3;
-        public ApartmentState ApmtState = ApartmentState.STA;
-        public bool VerifyOutput = true;
+        public StandardPackerContext(IUserInterfaceProvider uiProvider)
+        {
+            MarkedAssemblies = new List<string>();
+            MarkedReferences = new Dictionary<AssemblyDefinition, string>();
+            AnalysisDatabase = new Dictionary<string, AnalysisEntry>();
+            UIProvider = uiProvider;
+            PackingSteps = new List<IPackingStep>();
+        }
 
         public override bool VerifyContext()
         {
-            return !(CompressionLevel != 1 && CompressionLevel != 3);
-        }
-
-        public StandardContext()
-        {
-            PackingSteps = new List<PackingStep>();
-            MarkedReferences = new Dictionary<AssemblyDefinition, string>();
+            return true;
         }
     }
 }

@@ -1,19 +1,27 @@
-﻿using Mono.Cecil;
+﻿using System.Collections.Generic;
+using Mono.Cecil;
 using NETPack.Core.Engine.Structs__Enums___Interfaces;
 using NETPack.Core.Engine.Utils;
 
 namespace NETPack.Core.Engine.Packing.Analysis
 {
-    public class EntrypointAnalyzer : Analyzer
+    public class EntrypointAnalyzer : IAnalyzer
     {
-        public override string AnalyzationKey
+        public List<dynamic> LocalValues { get; set; }
+
+        public string AnalyzationKey
         {
             get { return "Entrypoint"; }
         }
 
-        public override AnalysisEntry Entry { get; set; }
+        public AnalysisEntry Entry { get; set; }
 
-        public override void Analyze(object param)
+        public EntrypointAnalyzer()
+        {
+            LocalValues = new List<dynamic>();
+        }
+
+        public void Analyze(object param)
         {
             var asmDef = (param as AssemblyDefinition);
             var ep = asmDef.EntryPoint;
@@ -24,9 +32,9 @@ namespace NETPack.Core.Engine.Packing.Analysis
             Entry = new AnalysisEntry(LocalValues[0]);
         }
 
-        public override void Output()
+        public void Output()
         {
-            Logger.VLog("[Analyze(Entrypoint)] -> " + (LocalValues[0].Count == 1 ? "(string[] args)" : "no param"));
+            Globals.Context.UIProvider.VerboseLog("[Analyze(Entrypoint)] -> " + (LocalValues[0].Count == 1 ? "(string[] args)" : "no param"));
 
         }
     }
