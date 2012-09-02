@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
+using NETPack.Core.Engine.Compression;
 using NETPack.Core.Engine.Structs__Enums___Interfaces;
 using NETPack.Core.Engine.Utils;
 using NETPack.Core.Engine.Utils.Extensions;

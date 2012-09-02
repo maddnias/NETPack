@@ -30,21 +30,25 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\Compression\DeflateStream.cs" />
     <Compile Include="Engine\ConsoleLogger.cs" />
     <Compile Include="Engine\PackerContext.cs" />
     <Compile Include="Engine\Packing\Analysis\CLRVersionAnalyzer.cs" />
     <Compile Include="Engine\Packing\Analysis\AssemblyReferenceAnalyzer.cs" />
     <Compile Include="Engine\Packing\Analysis\ArchitectureAnalyzer.cs" />
+    <Compile Include="Engine\Packing\Analysis\IconAnalyzer.cs" />
     <Compile Include="Engine\Packing\Analysis\EntrypointAnalyzer.cs" />
     <Compile Include="Engine\Packing\Analysis\ReflectionAnalyzer.cs" />
     <Compile Include="Engine\Packing\Analysis\SubsystemAnalyzer.cs" />
@@ -55,7 +59,7 @@
     <Compile Include="Engine\Packing\Steps\InitializerStep.cs" />
     <Compile Include="Engine\Packing\Steps\FinalizerStep.cs" />
     <Compile Include="Engine\Packing\Steps\ReferencePackerStep.cs" />
-    <Compile Include="Engine\QuickLZ.cs" />
+    <Compile Include="Engine\Compression\QuickLZ.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\AnalysisEntry.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\Analyzer.cs" />
     <Compile Include="Engine\Structs, Enums &amp; Interfaces\Bugster\NETPackExceptionFormatter.cs" />

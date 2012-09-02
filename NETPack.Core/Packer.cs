@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using Mono.Cecil;
 using NETPack.Core.Engine;
+using NETPack.Core.Engine.Compression;
 using NETPack.Core.Engine.Packing.Steps;
 using NETPack.Core.Engine.Structs__Enums___Interfaces;
 using NETPack.Core.Engine.Structs__Enums___Interfaces.Bugster;

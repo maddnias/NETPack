@@ -10,9 +10,12 @@ namespace NETPack.Core
     public class PackerOptionSet
     {
         public bool MoveReferences = true;
-        public int CompressionLevel = 3;
-        public ApartmentState ApmtState = ApartmentState.STA;
         public bool VerifyOutput = true;
+        public bool PreserveIcon;
+
+        public int CompressionLevel = 3;
+
+        public ApartmentState ApmtState = ApartmentState.STA; 
         public LogLevel @LogLevel = LogLevel.Subtle;
     }
 }

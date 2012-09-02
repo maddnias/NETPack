@@ -36,7 +36,8 @@ namespace NETPack.Core.Engine.Packing.Steps
                                  {new SubsystemAnalyzer(), AsmDef},
                                  {new ReflectionAnalyzer(), AsmDef},
                                  {new ArchitectureAnalyzer(), AsmDef},
-                                 {new EntrypointAnalyzer(), AsmDef}
+                                 {new EntrypointAnalyzer(), AsmDef},
+                                 {new IconAnalyzer(), Globals.Context.InPath}
                              };
 
             base.Initialize();

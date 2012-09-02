@@ -14,11 +14,7 @@ namespace NETPack.Core.Engine.Packing.Analysis
     {
         public List<dynamic> LocalValues { get; set; }
 
-        public string AnalyzationKey
-        {
-            get { return "Reflection"; }
-        }
-
+        public string AnalyzationKey { get { return "Reflection"; } }
         public AnalysisEntry Entry { get; set; }
 
         public ReflectionAnalyzer()

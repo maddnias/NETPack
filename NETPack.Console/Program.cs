@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using Mono.Cecil;
@@ -21,6 +22,7 @@ namespace NETPack.Console
 
         static void Main(string[] args)
         {
+
             if(args.Length == 0)
                 throw new ArgumentNullException("args");
 
@@ -104,7 +106,13 @@ namespace NETPack.Console
                                                                                                                       {
                                                                                                                           if (nv != null)
                                                                                                                               _ctx.Options.VerifyOutput = false;
-                                                                                                                      }}
+                                                                                                                      }},
+
+                                   {"pi|preserveicon", "Decides whether or not the packer should preserve the original icon | --preserveicon", pi =>
+                                                                                                                                                   {
+                                                                                                                                                       if (pi != null)
+                                                                                                                                                           _ctx.Options.PreserveIcon = true;
+                                                                                                                                                   }}
                                 };
 
             try

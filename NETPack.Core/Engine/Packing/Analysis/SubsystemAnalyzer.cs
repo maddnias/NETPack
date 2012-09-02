@@ -12,11 +12,7 @@ namespace NETPack.Core.Engine.Packing.Analysis
     {
         public List<dynamic> LocalValues { get; set; }
 
-        public string AnalyzationKey
-        {
-            get { return "Subsys"; }
-        }
-
+        public string AnalyzationKey { get { return "Subsys"; } }
         public AnalysisEntry Entry { get; set; }
 
         public SubsystemAnalyzer()
